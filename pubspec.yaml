@@ -1,0 +1,47 @@
+name: academic_master
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  auto_route: ^1.0.1
+  cloud_firestore: ^1.0.1
+  dartz: ^0.10.0-nullsafety.1
+  equatable: ^2.0.0
+  firebase_auth: ^1.0.1
+  firebase_core: ^1.0.1
+  flushbar: ^1.10.4
+  flutter_bloc: ^7.0.0
+  flutter_hooks: ^0.16.0
+  flutter_slidable: ^0.5.7
+  freezed_annotation: ^0.14.1
+  get_it: ^6.0.0
+  google_sign_in: ^5.0.0
+  injectable: ^1.2.0
+  json_annotation: ^4.0.0
+  kt_dart: ^0.9.0
+  provider: ^5.0.0
+  rxdart: ^0.26.0
+  uuid: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+
+    sdk: flutter
+  auto_route_generator: ^1.0.1
+  build_runner: null
+  freezed: ^0.14.1
+  injectable_generator: ^1.2.0
+  json_serializable: ^4.0.2
+  lint: ^1.5.3
+
+flutter:
+
+  uses-material-design: true
