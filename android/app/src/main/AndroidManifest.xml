@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.academic_master">
+    package="com.academic.master">
    <application
         android:label="academic_master"
         android:icon="@mipmap/ic_launcher">

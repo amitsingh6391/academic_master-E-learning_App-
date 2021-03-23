@@ -1,5 +1,5 @@
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:academic_master/application/auth/sign_in_form/sign_in_form_bloc.dart';
