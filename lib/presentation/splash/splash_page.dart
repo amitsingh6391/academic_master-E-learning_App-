@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
           initial: (_) {},
           authenticated: (_) {
             print('I am authenticated!');
-            AutoRouter.of(context).replace(const SignInRoute());
+            // AutoRouter.of(context).replace(const SignInRoute());
             // AutoRouter.of(context).replace(Testpage());
           },
           unauthenticated: (_) {
