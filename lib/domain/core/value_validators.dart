@@ -1,5 +1,5 @@
 import 'package:academic_master/domain/core/failures.dart';
-// ignore: import_of_legacy_library_into_null_safe
+
 import 'package:dartz/dartz.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
