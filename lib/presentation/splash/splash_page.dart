@@ -20,7 +20,7 @@ class SplashPage extends StatelessWidget {
           },
           unauthenticated: (_) {
             print('I am unthenticated!');
-            AutoRouter.of(context).replace(const SignInRoute());
+            // AutoRouter.of(context).replace(const SignInRoute());
           },
         );
       },
