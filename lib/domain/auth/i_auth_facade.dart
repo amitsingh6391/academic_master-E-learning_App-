@@ -1,6 +1,7 @@
 import 'package:academic_master/domain/auth/auth_failure.dart';
 import 'package:academic_master/domain/auth/user.dart';
 import 'package:academic_master/domain/auth/value_objects.dart';
+import 'package:academic_master/domain/core/value_objects.dart';
 
 import 'package:dartz/dartz.dart';
 
@@ -10,6 +11,12 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
+    required Name name,
+    required PhoneNumber phoneNumber,
+    required Branch branch,
+    required Course course,
+    required College college,
+    required Year year,
   });
 
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
@@ -17,6 +24,9 @@ abstract class IAuthFacade {
     required Password password,
   });
 
+  Future<Either<AuthFailure, Unit>> sendPasswordResetEmail({
+    required EmailAddress emailAddress,
+  });
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
 
   Future<void> signOut();

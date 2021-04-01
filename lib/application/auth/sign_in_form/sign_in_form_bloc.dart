@@ -39,11 +39,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: none(),
         );
       },
-      registerWithEmailAndPasswordPressed: (e) async* {
-        yield* _performActionOnAuthFacadeWithEmailAndPassword(
-          _authFacade.registerWithEmailAndPassword,
-        );
-      },
+      // registerWithEmailAndPasswordPressed: (e) async* {
+      //   yield* _performActionOnAuthFacadeWithEmailAndPassword(
+      //     _authFacade.registerWithEmailAndPassword,
+      //   );
+      // },
       signInWithEmailAndPasswordPressed: (e) async* {
         yield* _performActionOnAuthFacadeWithEmailAndPassword(
           _authFacade.signInWithEmailAndPassword,
@@ -60,6 +60,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: some(failureOrSuccess),
         );
       },
+
+      // registerWithEmailAndPasswordPressed:
+      //  (RegisterWithEmailAndPasswordPressed value) {
+
+      //   },
     );
   }
 

@@ -6,7 +6,7 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 
-import '../sign_in/sign_in_page.dart' as _i3;
+import '../auth/sign_in_page.dart' as _i3;
 import '../splash/splash_page.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
