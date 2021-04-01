@@ -4,7 +4,7 @@ import 'package:academic_master/domain/core/value_objects.dart';
 
 extension FirebaseUserDomainX on firebase.User {
   User toDomain() {
-    return User(
+    return User.empty().copyWith(
       id: UniqueId.fromUniqueString(uid),
     );
   }
