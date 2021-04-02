@@ -7,6 +7,7 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 
 import '../auth/sign_in_page.dart' as _i3;
+import '../e_learning/homepage.dart' as _i4;
 import '../splash/splash_page.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -27,6 +28,13 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i3.SignInPage(),
           maintainState: true,
           fullscreenDialog: false);
+    },
+    Homepage.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i4.Homepage(),
+          maintainState: true,
+          fullscreenDialog: false);
     }
   };
 
@@ -35,7 +43,9 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SplashRoute.name,
             path: '/', fullMatch: false, usesTabsRouter: false),
         _i1.RouteConfig(SignInRoute.name,
-            path: '/sign-in-page', fullMatch: false, usesTabsRouter: false)
+            path: '/sign-in-page', fullMatch: false, usesTabsRouter: false),
+        _i1.RouteConfig(Homepage.name,
+            path: '/Homepage', fullMatch: false, usesTabsRouter: false)
       ];
 }
 
@@ -49,4 +59,10 @@ class SignInRoute extends _i1.PageRouteInfo {
   const SignInRoute() : super(name, path: '/sign-in-page');
 
   static const String name = 'SignInRoute';
+}
+
+class Homepage extends _i1.PageRouteInfo {
+  const Homepage() : super(name, path: '/Homepage');
+
+  static const String name = 'Homepage';
 }
