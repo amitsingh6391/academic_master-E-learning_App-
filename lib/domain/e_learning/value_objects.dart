@@ -1,7 +1,8 @@
+import 'package:dartz/dartz.dart';
+
 import 'package:academic_master/domain/core/failures.dart';
 import 'package:academic_master/domain/core/value_objects.dart';
 import 'package:academic_master/domain/core/value_validators.dart';
-import 'package:dartz/dartz.dart';
 
 class SubjectName extends ValueObject<String> {
   @override
@@ -68,18 +69,18 @@ class SubjectIcon extends ValueObject<String> {
   const SubjectIcon._(this.value);
 }
 
-class SubjectVideoTutorial extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+// class SubjectVideoTutorial extends ValueObject<List> {
+//   @override
+//   final Either<ValueFailure<String>, List<dynamic>> value;
 
-  factory SubjectVideoTutorial(String input) {
-    return SubjectVideoTutorial._(
-      validateVideoUrl(input),
-    );
-  }
+//   factory SubjectVideoTutorial(List<dynamic> input) {
+//     return SubjectVideoTutorial._(
+//      // validateVideoUrl(input),
+//     );
+//   }
 
-  const SubjectVideoTutorial._(this.value);
-}
+//   const SubjectVideoTutorial._(this.value);
+// }
 
 class TopicName extends ValueObject<String> {
   @override

@@ -24,4 +24,14 @@ extension FirestoreX on FirebaseFirestore {
         .doc("profile_detail")
         .collection("profile_information");
   }
+
+  Future<CollectionReference> subjectCollection() async {
+    UserDto? userDto;
+    return FirebaseFirestore.instance
+        .collection('courses')
+        .doc(userDto!.course)
+        .collection("branch")
+        .doc(userDto.branch)
+        .collection(userDto.year);
+  }
 }
