@@ -21,15 +21,13 @@ class _$SubjectTearOff {
       required SubjectIcon subjectIcon,
       required SubjectNote subjectNote,
       required SubjectPaper subjectPaper,
-      required SubjectSyllaybus subjectSyllaybus,
-      required List<dynamic> subjectVideoTutorial}) {
+      required SubjectSyllaybus subjectSyllaybus}) {
     return _Subject(
       subjectName: subjectName,
       subjectIcon: subjectIcon,
       subjectNote: subjectNote,
       subjectPaper: subjectPaper,
       subjectSyllaybus: subjectSyllaybus,
-      subjectVideoTutorial: subjectVideoTutorial,
     );
   }
 }
@@ -44,7 +42,6 @@ mixin _$Subject {
   SubjectNote get subjectNote => throw _privateConstructorUsedError;
   SubjectPaper get subjectPaper => throw _privateConstructorUsedError;
   SubjectSyllaybus get subjectSyllaybus => throw _privateConstructorUsedError;
-  List<dynamic> get subjectVideoTutorial => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubjectCopyWith<Subject> get copyWith => throw _privateConstructorUsedError;
@@ -59,8 +56,7 @@ abstract class $SubjectCopyWith<$Res> {
       SubjectIcon subjectIcon,
       SubjectNote subjectNote,
       SubjectPaper subjectPaper,
-      SubjectSyllaybus subjectSyllaybus,
-      List<dynamic> subjectVideoTutorial});
+      SubjectSyllaybus subjectSyllaybus});
 }
 
 /// @nodoc
@@ -78,7 +74,6 @@ class _$SubjectCopyWithImpl<$Res> implements $SubjectCopyWith<$Res> {
     Object? subjectNote = freezed,
     Object? subjectPaper = freezed,
     Object? subjectSyllaybus = freezed,
-    Object? subjectVideoTutorial = freezed,
   }) {
     return _then(_value.copyWith(
       subjectName: subjectName == freezed
@@ -101,10 +96,6 @@ class _$SubjectCopyWithImpl<$Res> implements $SubjectCopyWith<$Res> {
           ? _value.subjectSyllaybus
           : subjectSyllaybus // ignore: cast_nullable_to_non_nullable
               as SubjectSyllaybus,
-      subjectVideoTutorial: subjectVideoTutorial == freezed
-          ? _value.subjectVideoTutorial
-          : subjectVideoTutorial // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
     ));
   }
 }
@@ -119,8 +110,7 @@ abstract class _$SubjectCopyWith<$Res> implements $SubjectCopyWith<$Res> {
       SubjectIcon subjectIcon,
       SubjectNote subjectNote,
       SubjectPaper subjectPaper,
-      SubjectSyllaybus subjectSyllaybus,
-      List<dynamic> subjectVideoTutorial});
+      SubjectSyllaybus subjectSyllaybus});
 }
 
 /// @nodoc
@@ -139,7 +129,6 @@ class __$SubjectCopyWithImpl<$Res> extends _$SubjectCopyWithImpl<$Res>
     Object? subjectNote = freezed,
     Object? subjectPaper = freezed,
     Object? subjectSyllaybus = freezed,
-    Object? subjectVideoTutorial = freezed,
   }) {
     return _then(_Subject(
       subjectName: subjectName == freezed
@@ -162,10 +151,6 @@ class __$SubjectCopyWithImpl<$Res> extends _$SubjectCopyWithImpl<$Res>
           ? _value.subjectSyllaybus
           : subjectSyllaybus // ignore: cast_nullable_to_non_nullable
               as SubjectSyllaybus,
-      subjectVideoTutorial: subjectVideoTutorial == freezed
-          ? _value.subjectVideoTutorial
-          : subjectVideoTutorial // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
     ));
   }
 }
@@ -177,8 +162,7 @@ class _$_Subject extends _Subject {
       required this.subjectIcon,
       required this.subjectNote,
       required this.subjectPaper,
-      required this.subjectSyllaybus,
-      required this.subjectVideoTutorial})
+      required this.subjectSyllaybus})
       : super._();
 
   @override
@@ -191,12 +175,10 @@ class _$_Subject extends _Subject {
   final SubjectPaper subjectPaper;
   @override
   final SubjectSyllaybus subjectSyllaybus;
-  @override
-  final List<dynamic> subjectVideoTutorial;
 
   @override
   String toString() {
-    return 'Subject(subjectName: $subjectName, subjectIcon: $subjectIcon, subjectNote: $subjectNote, subjectPaper: $subjectPaper, subjectSyllaybus: $subjectSyllaybus, subjectVideoTutorial: $subjectVideoTutorial)';
+    return 'Subject(subjectName: $subjectName, subjectIcon: $subjectIcon, subjectNote: $subjectNote, subjectPaper: $subjectPaper, subjectSyllaybus: $subjectSyllaybus)';
   }
 
   @override
@@ -217,10 +199,7 @@ class _$_Subject extends _Subject {
                     .equals(other.subjectPaper, subjectPaper)) &&
             (identical(other.subjectSyllaybus, subjectSyllaybus) ||
                 const DeepCollectionEquality()
-                    .equals(other.subjectSyllaybus, subjectSyllaybus)) &&
-            (identical(other.subjectVideoTutorial, subjectVideoTutorial) ||
-                const DeepCollectionEquality()
-                    .equals(other.subjectVideoTutorial, subjectVideoTutorial)));
+                    .equals(other.subjectSyllaybus, subjectSyllaybus)));
   }
 
   @override
@@ -230,8 +209,7 @@ class _$_Subject extends _Subject {
       const DeepCollectionEquality().hash(subjectIcon) ^
       const DeepCollectionEquality().hash(subjectNote) ^
       const DeepCollectionEquality().hash(subjectPaper) ^
-      const DeepCollectionEquality().hash(subjectSyllaybus) ^
-      const DeepCollectionEquality().hash(subjectVideoTutorial);
+      const DeepCollectionEquality().hash(subjectSyllaybus);
 
   @JsonKey(ignore: true)
   @override
@@ -245,8 +223,7 @@ abstract class _Subject extends Subject {
       required SubjectIcon subjectIcon,
       required SubjectNote subjectNote,
       required SubjectPaper subjectPaper,
-      required SubjectSyllaybus subjectSyllaybus,
-      required List<dynamic> subjectVideoTutorial}) = _$_Subject;
+      required SubjectSyllaybus subjectSyllaybus}) = _$_Subject;
   const _Subject._() : super._();
 
   @override
@@ -259,8 +236,6 @@ abstract class _Subject extends Subject {
   SubjectPaper get subjectPaper => throw _privateConstructorUsedError;
   @override
   SubjectSyllaybus get subjectSyllaybus => throw _privateConstructorUsedError;
-  @override
-  List<dynamic> get subjectVideoTutorial => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SubjectCopyWith<_Subject> get copyWith =>
