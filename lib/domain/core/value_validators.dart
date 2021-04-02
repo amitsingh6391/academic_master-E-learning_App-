@@ -47,6 +47,17 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateVideoUrl(String input) {
+  const videoRegex =
+      r"""^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$""";
+
+  if (RegExp(videoRegex).hasMatch(input)) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidEmail(input));
+  }
+}
+
 Either<ValueFailure<String>, String> validatePassword(String input) {
   if (input.length > 6) {
     return right(input);
