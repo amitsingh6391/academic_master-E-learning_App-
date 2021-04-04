@@ -1,6 +1,7 @@
 # academic_master
 
-A new Flutter project.
+For run this project you have to connect with firebase and then you are good to go.
+
 
 ## Getting Started
 
