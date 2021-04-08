@@ -35,6 +35,13 @@ class _$ValueFailureTearOff {
     );
   }
 
+  ListTooLong<T> listTooLong<T>({required T failedValue, required int max}) {
+    return ListTooLong<T>(
+      failedValue: failedValue,
+      max: max,
+    );
+  }
+
   Empty<T> empty<T>(T failedValue) {
     return Empty<T>(
       failedValue,
@@ -90,6 +97,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -104,6 +112,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -119,6 +128,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -133,6 +143,7 @@ mixin _$ValueFailure<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -259,6 +270,7 @@ class _$InvalidEmail<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -276,6 +288,7 @@ class _$InvalidEmail<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -297,6 +310,7 @@ class _$InvalidEmail<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -314,6 +328,7 @@ class _$InvalidEmail<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -421,6 +436,7 @@ class _$ShortPassword<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -438,6 +454,7 @@ class _$ShortPassword<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -459,6 +476,7 @@ class _$ShortPassword<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -476,6 +494,7 @@ class _$ShortPassword<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -595,6 +614,7 @@ class _$ExceedingLength<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -612,6 +632,7 @@ class _$ExceedingLength<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -633,6 +654,7 @@ class _$ExceedingLength<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -650,6 +672,7 @@ class _$ExceedingLength<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -675,6 +698,184 @@ abstract class ExceedingLength<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ListTooLongCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $ListTooLongCopyWith(
+          ListTooLong<T> value, $Res Function(ListTooLong<T>) then) =
+      _$ListTooLongCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue, int max});
+}
+
+/// @nodoc
+class _$ListTooLongCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ListTooLongCopyWith<T, $Res> {
+  _$ListTooLongCopyWithImpl(
+      ListTooLong<T> _value, $Res Function(ListTooLong<T>) _then)
+      : super(_value, (v) => _then(v as ListTooLong<T>));
+
+  @override
+  ListTooLong<T> get _value => super._value as ListTooLong<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+    Object? max = freezed,
+  }) {
+    return _then(ListTooLong<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+      max: max == freezed
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
+  const _$ListTooLong({required this.failedValue, required this.max});
+
+  @override
+  final T failedValue;
+  @override
+  final int max;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.listTooLong(failedValue: $failedValue, max: $max)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.listTooLong'))
+      ..add(DiagnosticsProperty('failedValue', failedValue))
+      ..add(DiagnosticsProperty('max', max));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ListTooLong<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.max, max) ||
+                const DeepCollectionEquality().equals(other.max, max)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(max);
+
+  @JsonKey(ignore: true)
+  @override
+  $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith =>
+      _$ListTooLongCopyWithImpl<T, ListTooLong<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidBtechBranch,
+    required TResult Function(T failedValue) invalidCourse,
+    required TResult Function(T failedValue) invalidCollege,
+    required TResult Function(T failedValue) invalidYear,
+    required TResult Function(T failedValue) invaliDpharmaYear,
+    required TResult Function(T failedValue) invalidPhoneNumber,
+  }) {
+    return listTooLong(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidBtechBranch,
+    TResult Function(T failedValue)? invalidCourse,
+    TResult Function(T failedValue)? invalidCollege,
+    TResult Function(T failedValue)? invalidYear,
+    TResult Function(T failedValue)? invaliDpharmaYear,
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (listTooLong != null) {
+      return listTooLong(failedValue, max);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
+    required TResult Function(InvalidCourse<T> value) invalidCourse,
+    required TResult Function(InvalidCollege<T> value) invalidCollege,
+    required TResult Function(InvalidYear<T> value) invalidYear,
+    required TResult Function(InvalidDpharmaYear<T> value) invaliDpharmaYear,
+    required TResult Function(InvalidPhoneNumber<T> value) invalidPhoneNumber,
+  }) {
+    return listTooLong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
+    TResult Function(InvalidCourse<T> value)? invalidCourse,
+    TResult Function(InvalidCollege<T> value)? invalidCollege,
+    TResult Function(InvalidYear<T> value)? invalidYear,
+    TResult Function(InvalidDpharmaYear<T> value)? invaliDpharmaYear,
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (listTooLong != null) {
+      return listTooLong(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListTooLong<T> implements ValueFailure<T> {
+  const factory ListTooLong({required T failedValue, required int max}) =
+      _$ListTooLong<T>;
+
+  @override
+  T get failedValue => throw _privateConstructorUsedError;
+  int get max => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -753,6 +954,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -770,6 +972,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -791,6 +994,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -808,6 +1012,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -916,6 +1121,7 @@ class _$InvalidBtechBranch<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -933,6 +1139,7 @@ class _$InvalidBtechBranch<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -954,6 +1161,7 @@ class _$InvalidBtechBranch<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -971,6 +1179,7 @@ class _$InvalidBtechBranch<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -1078,6 +1287,7 @@ class _$InvalidCourse<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -1095,6 +1305,7 @@ class _$InvalidCourse<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -1116,6 +1327,7 @@ class _$InvalidCourse<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -1133,6 +1345,7 @@ class _$InvalidCourse<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -1240,6 +1453,7 @@ class _$InvalidCollege<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -1257,6 +1471,7 @@ class _$InvalidCollege<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -1278,6 +1493,7 @@ class _$InvalidCollege<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -1295,6 +1511,7 @@ class _$InvalidCollege<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -1400,6 +1617,7 @@ class _$InvalidYear<T> with DiagnosticableTreeMixin implements InvalidYear<T> {
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -1417,6 +1635,7 @@ class _$InvalidYear<T> with DiagnosticableTreeMixin implements InvalidYear<T> {
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -1438,6 +1657,7 @@ class _$InvalidYear<T> with DiagnosticableTreeMixin implements InvalidYear<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -1455,6 +1675,7 @@ class _$InvalidYear<T> with DiagnosticableTreeMixin implements InvalidYear<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -1563,6 +1784,7 @@ class _$InvalidDpharmaYear<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -1580,6 +1802,7 @@ class _$InvalidDpharmaYear<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -1601,6 +1824,7 @@ class _$InvalidDpharmaYear<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -1618,6 +1842,7 @@ class _$InvalidDpharmaYear<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,
@@ -1726,6 +1951,7 @@ class _$InvalidPhoneNumber<T>
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidBtechBranch,
     required TResult Function(T failedValue) invalidCourse,
@@ -1743,6 +1969,7 @@ class _$InvalidPhoneNumber<T>
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidBtechBranch,
     TResult Function(T failedValue)? invalidCourse,
@@ -1764,6 +1991,7 @@ class _$InvalidPhoneNumber<T>
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidBtechBranch<T> value) invalidBtechBranch,
     required TResult Function(InvalidCourse<T> value) invalidCourse,
@@ -1781,6 +2009,7 @@ class _$InvalidPhoneNumber<T>
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidBtechBranch<T> value)? invalidBtechBranch,
     TResult Function(InvalidCourse<T> value)? invalidCourse,

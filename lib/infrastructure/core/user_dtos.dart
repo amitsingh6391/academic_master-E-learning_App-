@@ -59,14 +59,14 @@ abstract class UserDto implements _$UserDto {
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
-  const ServerTimestampConverter();
+// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+//   const ServerTimestampConverter();
 
-  @override
-  FieldValue fromJson(Object json) {
-    return FieldValue.serverTimestamp();
-  }
+//   @override
+//   FieldValue fromJson(Object json) {
+//     return FieldValue.serverTimestamp();
+//   }
 
-  @override
-  Object toJson(FieldValue fieldValue) => fieldValue;
-}
+//   @override
+//   Object toJson(FieldValue fieldValue) => fieldValue;
+//}

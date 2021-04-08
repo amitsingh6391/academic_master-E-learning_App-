@@ -14,19 +14,21 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) {},
           authenticated: (_) {
-            print('I am authenticated!');
+            debugPrint('I am authenticated!');
 
             AutoRouter.of(context).replace(const Homepage());
           },
           unauthenticated: (_) {
-            print('I am unthenticated!');
+            debugPrint('I am unthenticated!');
             AutoRouter.of(context).replace(const SignInRoute());
           },
         );
       },
-      child: const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
+      child: Scaffold(
+        body: SafeArea(
+          child: Text(
+            "......${MediaQuery.of(context).size.height}  x ${MediaQuery.of(context).size.width},",
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'subject_watcher_bloc.dart';
+part of 'users_watcher_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,106 +13,88 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$SubjectWatcherEventTearOff {
-  const _$SubjectWatcherEventTearOff();
+class _$UsersWatcherEventTearOff {
+  const _$UsersWatcherEventTearOff();
 
-  _WatchAllSubject watchAllSubject() {
-    return const _WatchAllSubject();
-  }
-
-  _SubjectsReceived subjectsReceived(
-      Either<FirebaseFailure, KtList<Subject>> failureOrSubjects) {
-    return _SubjectsReceived(
-      failureOrSubjects,
-    );
+  _Started watchAllUsers() {
+    return const _Started();
   }
 }
 
 /// @nodoc
-const $SubjectWatcherEvent = _$SubjectWatcherEventTearOff();
+const $UsersWatcherEvent = _$UsersWatcherEventTearOff();
 
 /// @nodoc
-mixin _$SubjectWatcherEvent {
+mixin _$UsersWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() watchAllSubject,
-    required TResult Function(
-            Either<FirebaseFailure, KtList<Subject>> failureOrSubjects)
-        subjectsReceived,
+    required TResult Function() watchAllUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchAllSubject,
-    TResult Function(
-            Either<FirebaseFailure, KtList<Subject>> failureOrSubjects)?
-        subjectsReceived,
+    TResult Function()? watchAllUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchAllSubject value) watchAllSubject,
-    required TResult Function(_SubjectsReceived value) subjectsReceived,
+    required TResult Function(_Started value) watchAllUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchAllSubject value)? watchAllSubject,
-    TResult Function(_SubjectsReceived value)? subjectsReceived,
+    TResult Function(_Started value)? watchAllUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SubjectWatcherEventCopyWith<$Res> {
-  factory $SubjectWatcherEventCopyWith(
-          SubjectWatcherEvent value, $Res Function(SubjectWatcherEvent) then) =
-      _$SubjectWatcherEventCopyWithImpl<$Res>;
+abstract class $UsersWatcherEventCopyWith<$Res> {
+  factory $UsersWatcherEventCopyWith(
+          UsersWatcherEvent value, $Res Function(UsersWatcherEvent) then) =
+      _$UsersWatcherEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubjectWatcherEventCopyWithImpl<$Res>
-    implements $SubjectWatcherEventCopyWith<$Res> {
-  _$SubjectWatcherEventCopyWithImpl(this._value, this._then);
+class _$UsersWatcherEventCopyWithImpl<$Res>
+    implements $UsersWatcherEventCopyWith<$Res> {
+  _$UsersWatcherEventCopyWithImpl(this._value, this._then);
 
-  final SubjectWatcherEvent _value;
+  final UsersWatcherEvent _value;
   // ignore: unused_field
-  final $Res Function(SubjectWatcherEvent) _then;
+  final $Res Function(UsersWatcherEvent) _then;
 }
 
 /// @nodoc
-abstract class _$WatchAllSubjectCopyWith<$Res> {
-  factory _$WatchAllSubjectCopyWith(
-          _WatchAllSubject value, $Res Function(_WatchAllSubject) then) =
-      __$WatchAllSubjectCopyWithImpl<$Res>;
+abstract class _$StartedCopyWith<$Res> {
+  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
+      __$StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WatchAllSubjectCopyWithImpl<$Res>
-    extends _$SubjectWatcherEventCopyWithImpl<$Res>
-    implements _$WatchAllSubjectCopyWith<$Res> {
-  __$WatchAllSubjectCopyWithImpl(
-      _WatchAllSubject _value, $Res Function(_WatchAllSubject) _then)
-      : super(_value, (v) => _then(v as _WatchAllSubject));
+class __$StartedCopyWithImpl<$Res> extends _$UsersWatcherEventCopyWithImpl<$Res>
+    implements _$StartedCopyWith<$Res> {
+  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
+      : super(_value, (v) => _then(v as _Started));
 
   @override
-  _WatchAllSubject get _value => super._value as _WatchAllSubject;
+  _Started get _value => super._value as _Started;
 }
 
 /// @nodoc
-class _$_WatchAllSubject implements _WatchAllSubject {
-  const _$_WatchAllSubject();
+class _$_Started implements _Started {
+  const _$_Started();
 
   @override
   String toString() {
-    return 'SubjectWatcherEvent.watchAllSubject()';
+    return 'UsersWatcherEvent.watchAllUsers()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchAllSubject);
+    return identical(this, other) || (other is _Started);
   }
 
   @override
@@ -121,25 +103,19 @@ class _$_WatchAllSubject implements _WatchAllSubject {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() watchAllSubject,
-    required TResult Function(
-            Either<FirebaseFailure, KtList<Subject>> failureOrSubjects)
-        subjectsReceived,
+    required TResult Function() watchAllUsers,
   }) {
-    return watchAllSubject();
+    return watchAllUsers();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchAllSubject,
-    TResult Function(
-            Either<FirebaseFailure, KtList<Subject>> failureOrSubjects)?
-        subjectsReceived,
+    TResult Function()? watchAllUsers,
     required TResult orElse(),
   }) {
-    if (watchAllSubject != null) {
-      return watchAllSubject();
+    if (watchAllUsers != null) {
+      return watchAllUsers();
     }
     return orElse();
   }
@@ -147,157 +123,31 @@ class _$_WatchAllSubject implements _WatchAllSubject {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchAllSubject value) watchAllSubject,
-    required TResult Function(_SubjectsReceived value) subjectsReceived,
+    required TResult Function(_Started value) watchAllUsers,
   }) {
-    return watchAllSubject(this);
+    return watchAllUsers(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchAllSubject value)? watchAllSubject,
-    TResult Function(_SubjectsReceived value)? subjectsReceived,
+    TResult Function(_Started value)? watchAllUsers,
     required TResult orElse(),
   }) {
-    if (watchAllSubject != null) {
-      return watchAllSubject(this);
+    if (watchAllUsers != null) {
+      return watchAllUsers(this);
     }
     return orElse();
   }
 }
 
-abstract class _WatchAllSubject implements SubjectWatcherEvent {
-  const factory _WatchAllSubject() = _$_WatchAllSubject;
+abstract class _Started implements UsersWatcherEvent {
+  const factory _Started() = _$_Started;
 }
 
 /// @nodoc
-abstract class _$SubjectsReceivedCopyWith<$Res> {
-  factory _$SubjectsReceivedCopyWith(
-          _SubjectsReceived value, $Res Function(_SubjectsReceived) then) =
-      __$SubjectsReceivedCopyWithImpl<$Res>;
-  $Res call({Either<FirebaseFailure, KtList<Subject>> failureOrSubjects});
-}
-
-/// @nodoc
-class __$SubjectsReceivedCopyWithImpl<$Res>
-    extends _$SubjectWatcherEventCopyWithImpl<$Res>
-    implements _$SubjectsReceivedCopyWith<$Res> {
-  __$SubjectsReceivedCopyWithImpl(
-      _SubjectsReceived _value, $Res Function(_SubjectsReceived) _then)
-      : super(_value, (v) => _then(v as _SubjectsReceived));
-
-  @override
-  _SubjectsReceived get _value => super._value as _SubjectsReceived;
-
-  @override
-  $Res call({
-    Object? failureOrSubjects = freezed,
-  }) {
-    return _then(_SubjectsReceived(
-      failureOrSubjects == freezed
-          ? _value.failureOrSubjects
-          : failureOrSubjects // ignore: cast_nullable_to_non_nullable
-              as Either<FirebaseFailure, KtList<Subject>>,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_SubjectsReceived implements _SubjectsReceived {
-  const _$_SubjectsReceived(this.failureOrSubjects);
-
-  @override
-  final Either<FirebaseFailure, KtList<Subject>> failureOrSubjects;
-
-  @override
-  String toString() {
-    return 'SubjectWatcherEvent.subjectsReceived(failureOrSubjects: $failureOrSubjects)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _SubjectsReceived &&
-            (identical(other.failureOrSubjects, failureOrSubjects) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrSubjects, failureOrSubjects)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrSubjects);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SubjectsReceivedCopyWith<_SubjectsReceived> get copyWith =>
-      __$SubjectsReceivedCopyWithImpl<_SubjectsReceived>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchAllSubject,
-    required TResult Function(
-            Either<FirebaseFailure, KtList<Subject>> failureOrSubjects)
-        subjectsReceived,
-  }) {
-    return subjectsReceived(failureOrSubjects);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchAllSubject,
-    TResult Function(
-            Either<FirebaseFailure, KtList<Subject>> failureOrSubjects)?
-        subjectsReceived,
-    required TResult orElse(),
-  }) {
-    if (subjectsReceived != null) {
-      return subjectsReceived(failureOrSubjects);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchAllSubject value) watchAllSubject,
-    required TResult Function(_SubjectsReceived value) subjectsReceived,
-  }) {
-    return subjectsReceived(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchAllSubject value)? watchAllSubject,
-    TResult Function(_SubjectsReceived value)? subjectsReceived,
-    required TResult orElse(),
-  }) {
-    if (subjectsReceived != null) {
-      return subjectsReceived(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SubjectsReceived implements SubjectWatcherEvent {
-  const factory _SubjectsReceived(
-          Either<FirebaseFailure, KtList<Subject>> failureOrSubjects) =
-      _$_SubjectsReceived;
-
-  Either<FirebaseFailure, KtList<Subject>> get failureOrSubjects =>
-      throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SubjectsReceivedCopyWith<_SubjectsReceived> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$SubjectWatcherStateTearOff {
-  const _$SubjectWatcherStateTearOff();
+class _$UsersWatcherStateTearOff {
+  const _$UsersWatcherStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -307,38 +157,44 @@ class _$SubjectWatcherStateTearOff {
     return const _LoadInProgress();
   }
 
-  _LoadSuccess loadSuccess(KtList<Subject> subjects) {
+  _LoadSuccess loadSuccess(List<User> users) {
     return _LoadSuccess(
-      subjects,
+      users,
     );
   }
 
-  _LoadFailure loadFailure(FirebaseFailure firbaseFailure) {
+  _LoadFailure loadFailure(FirebaseFailure firebaseFailure) {
     return _LoadFailure(
-      firbaseFailure,
+      firebaseFailure,
     );
+  }
+
+  _Empty empty() {
+    return const _Empty();
   }
 }
 
 /// @nodoc
-const $SubjectWatcherState = _$SubjectWatcherStateTearOff();
+const $UsersWatcherState = _$UsersWatcherStateTearOff();
 
 /// @nodoc
-mixin _$SubjectWatcherState {
+mixin _$UsersWatcherState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Subject> subjects) loadSuccess,
-    required TResult Function(FirebaseFailure firbaseFailure) loadFailure,
+    required TResult Function(List<User> users) loadSuccess,
+    required TResult Function(FirebaseFailure firebaseFailure) loadFailure,
+    required TResult Function() empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Subject> subjects)? loadSuccess,
-    TResult Function(FirebaseFailure firbaseFailure)? loadFailure,
+    TResult Function(List<User> users)? loadSuccess,
+    TResult Function(FirebaseFailure firebaseFailure)? loadFailure,
+    TResult Function()? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -348,6 +204,7 @@ mixin _$SubjectWatcherState {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_Empty value) empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -356,26 +213,27 @@ mixin _$SubjectWatcherState {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SubjectWatcherStateCopyWith<$Res> {
-  factory $SubjectWatcherStateCopyWith(
-          SubjectWatcherState value, $Res Function(SubjectWatcherState) then) =
-      _$SubjectWatcherStateCopyWithImpl<$Res>;
+abstract class $UsersWatcherStateCopyWith<$Res> {
+  factory $UsersWatcherStateCopyWith(
+          UsersWatcherState value, $Res Function(UsersWatcherState) then) =
+      _$UsersWatcherStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubjectWatcherStateCopyWithImpl<$Res>
-    implements $SubjectWatcherStateCopyWith<$Res> {
-  _$SubjectWatcherStateCopyWithImpl(this._value, this._then);
+class _$UsersWatcherStateCopyWithImpl<$Res>
+    implements $UsersWatcherStateCopyWith<$Res> {
+  _$UsersWatcherStateCopyWithImpl(this._value, this._then);
 
-  final SubjectWatcherState _value;
+  final UsersWatcherState _value;
   // ignore: unused_field
-  final $Res Function(SubjectWatcherState) _then;
+  final $Res Function(UsersWatcherState) _then;
 }
 
 /// @nodoc
@@ -385,8 +243,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$SubjectWatcherStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$UsersWatcherStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -401,7 +258,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'SubjectWatcherState.initial()';
+    return 'UsersWatcherState.initial()';
   }
 
   @override
@@ -417,8 +274,9 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Subject> subjects) loadSuccess,
-    required TResult Function(FirebaseFailure firbaseFailure) loadFailure,
+    required TResult Function(List<User> users) loadSuccess,
+    required TResult Function(FirebaseFailure firebaseFailure) loadFailure,
+    required TResult Function() empty,
   }) {
     return initial();
   }
@@ -428,8 +286,9 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Subject> subjects)? loadSuccess,
-    TResult Function(FirebaseFailure firbaseFailure)? loadFailure,
+    TResult Function(List<User> users)? loadSuccess,
+    TResult Function(FirebaseFailure firebaseFailure)? loadFailure,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -445,6 +304,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_Empty value) empty,
   }) {
     return initial(this);
   }
@@ -456,6 +316,7 @@ class _$_Initial implements _Initial {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -465,7 +326,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements SubjectWatcherState {
+abstract class _Initial implements UsersWatcherState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -478,7 +339,7 @@ abstract class _$LoadInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$LoadInProgressCopyWithImpl<$Res>
-    extends _$SubjectWatcherStateCopyWithImpl<$Res>
+    extends _$UsersWatcherStateCopyWithImpl<$Res>
     implements _$LoadInProgressCopyWith<$Res> {
   __$LoadInProgressCopyWithImpl(
       _LoadInProgress _value, $Res Function(_LoadInProgress) _then)
@@ -494,7 +355,7 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   String toString() {
-    return 'SubjectWatcherState.loadInProgress()';
+    return 'UsersWatcherState.loadInProgress()';
   }
 
   @override
@@ -510,8 +371,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Subject> subjects) loadSuccess,
-    required TResult Function(FirebaseFailure firbaseFailure) loadFailure,
+    required TResult Function(List<User> users) loadSuccess,
+    required TResult Function(FirebaseFailure firebaseFailure) loadFailure,
+    required TResult Function() empty,
   }) {
     return loadInProgress();
   }
@@ -521,8 +383,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Subject> subjects)? loadSuccess,
-    TResult Function(FirebaseFailure firbaseFailure)? loadFailure,
+    TResult Function(List<User> users)? loadSuccess,
+    TResult Function(FirebaseFailure firebaseFailure)? loadFailure,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -538,6 +401,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_Empty value) empty,
   }) {
     return loadInProgress(this);
   }
@@ -549,6 +413,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -558,7 +423,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 }
 
-abstract class _LoadInProgress implements SubjectWatcherState {
+abstract class _LoadInProgress implements UsersWatcherState {
   const factory _LoadInProgress() = _$_LoadInProgress;
 }
 
@@ -567,12 +432,12 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<Subject> subjects});
+  $Res call({List<User> users});
 }
 
 /// @nodoc
 class __$LoadSuccessCopyWithImpl<$Res>
-    extends _$SubjectWatcherStateCopyWithImpl<$Res>
+    extends _$UsersWatcherStateCopyWithImpl<$Res>
     implements _$LoadSuccessCopyWith<$Res> {
   __$LoadSuccessCopyWithImpl(
       _LoadSuccess _value, $Res Function(_LoadSuccess) _then)
@@ -583,41 +448,40 @@ class __$LoadSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subjects = freezed,
+    Object? users = freezed,
   }) {
     return _then(_LoadSuccess(
-      subjects == freezed
-          ? _value.subjects
-          : subjects // ignore: cast_nullable_to_non_nullable
-              as KtList<Subject>,
+      users == freezed
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<User>,
     ));
   }
 }
 
 /// @nodoc
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.subjects);
+  const _$_LoadSuccess(this.users);
 
   @override
-  final KtList<Subject> subjects;
+  final List<User> users;
 
   @override
   String toString() {
-    return 'SubjectWatcherState.loadSuccess(subjects: $subjects)';
+    return 'UsersWatcherState.loadSuccess(users: $users)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _LoadSuccess &&
-            (identical(other.subjects, subjects) ||
-                const DeepCollectionEquality()
-                    .equals(other.subjects, subjects)));
+            (identical(other.users, users) ||
+                const DeepCollectionEquality().equals(other.users, users)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(subjects);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(users);
 
   @JsonKey(ignore: true)
   @override
@@ -629,10 +493,11 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Subject> subjects) loadSuccess,
-    required TResult Function(FirebaseFailure firbaseFailure) loadFailure,
+    required TResult Function(List<User> users) loadSuccess,
+    required TResult Function(FirebaseFailure firebaseFailure) loadFailure,
+    required TResult Function() empty,
   }) {
-    return loadSuccess(subjects);
+    return loadSuccess(users);
   }
 
   @override
@@ -640,12 +505,13 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Subject> subjects)? loadSuccess,
-    TResult Function(FirebaseFailure firbaseFailure)? loadFailure,
+    TResult Function(List<User> users)? loadSuccess,
+    TResult Function(FirebaseFailure firebaseFailure)? loadFailure,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(subjects);
+      return loadSuccess(users);
     }
     return orElse();
   }
@@ -657,6 +523,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_Empty value) empty,
   }) {
     return loadSuccess(this);
   }
@@ -668,6 +535,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -677,10 +545,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 }
 
-abstract class _LoadSuccess implements SubjectWatcherState {
-  const factory _LoadSuccess(KtList<Subject> subjects) = _$_LoadSuccess;
+abstract class _LoadSuccess implements UsersWatcherState {
+  const factory _LoadSuccess(List<User> users) = _$_LoadSuccess;
 
-  KtList<Subject> get subjects => throw _privateConstructorUsedError;
+  List<User> get users => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -691,14 +559,14 @@ abstract class _$LoadFailureCopyWith<$Res> {
   factory _$LoadFailureCopyWith(
           _LoadFailure value, $Res Function(_LoadFailure) then) =
       __$LoadFailureCopyWithImpl<$Res>;
-  $Res call({FirebaseFailure firbaseFailure});
+  $Res call({FirebaseFailure firebaseFailure});
 
-  $FirebaseFailureCopyWith<$Res> get firbaseFailure;
+  $FirebaseFailureCopyWith<$Res> get firebaseFailure;
 }
 
 /// @nodoc
 class __$LoadFailureCopyWithImpl<$Res>
-    extends _$SubjectWatcherStateCopyWithImpl<$Res>
+    extends _$UsersWatcherStateCopyWithImpl<$Res>
     implements _$LoadFailureCopyWith<$Res> {
   __$LoadFailureCopyWithImpl(
       _LoadFailure _value, $Res Function(_LoadFailure) _then)
@@ -709,49 +577,49 @@ class __$LoadFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? firbaseFailure = freezed,
+    Object? firebaseFailure = freezed,
   }) {
     return _then(_LoadFailure(
-      firbaseFailure == freezed
-          ? _value.firbaseFailure
-          : firbaseFailure // ignore: cast_nullable_to_non_nullable
+      firebaseFailure == freezed
+          ? _value.firebaseFailure
+          : firebaseFailure // ignore: cast_nullable_to_non_nullable
               as FirebaseFailure,
     ));
   }
 
   @override
-  $FirebaseFailureCopyWith<$Res> get firbaseFailure {
-    return $FirebaseFailureCopyWith<$Res>(_value.firbaseFailure, (value) {
-      return _then(_value.copyWith(firbaseFailure: value));
+  $FirebaseFailureCopyWith<$Res> get firebaseFailure {
+    return $FirebaseFailureCopyWith<$Res>(_value.firebaseFailure, (value) {
+      return _then(_value.copyWith(firebaseFailure: value));
     });
   }
 }
 
 /// @nodoc
 class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.firbaseFailure);
+  const _$_LoadFailure(this.firebaseFailure);
 
   @override
-  final FirebaseFailure firbaseFailure;
+  final FirebaseFailure firebaseFailure;
 
   @override
   String toString() {
-    return 'SubjectWatcherState.loadFailure(firbaseFailure: $firbaseFailure)';
+    return 'UsersWatcherState.loadFailure(firebaseFailure: $firebaseFailure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _LoadFailure &&
-            (identical(other.firbaseFailure, firbaseFailure) ||
+            (identical(other.firebaseFailure, firebaseFailure) ||
                 const DeepCollectionEquality()
-                    .equals(other.firbaseFailure, firbaseFailure)));
+                    .equals(other.firebaseFailure, firebaseFailure)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(firbaseFailure);
+      const DeepCollectionEquality().hash(firebaseFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -763,10 +631,11 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Subject> subjects) loadSuccess,
-    required TResult Function(FirebaseFailure firbaseFailure) loadFailure,
+    required TResult Function(List<User> users) loadSuccess,
+    required TResult Function(FirebaseFailure firebaseFailure) loadFailure,
+    required TResult Function() empty,
   }) {
-    return loadFailure(firbaseFailure);
+    return loadFailure(firebaseFailure);
   }
 
   @override
@@ -774,12 +643,13 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Subject> subjects)? loadSuccess,
-    TResult Function(FirebaseFailure firbaseFailure)? loadFailure,
+    TResult Function(List<User> users)? loadSuccess,
+    TResult Function(FirebaseFailure firebaseFailure)? loadFailure,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
-      return loadFailure(firbaseFailure);
+      return loadFailure(firebaseFailure);
     }
     return orElse();
   }
@@ -791,6 +661,7 @@ class _$_LoadFailure implements _LoadFailure {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_Empty value) empty,
   }) {
     return loadFailure(this);
   }
@@ -802,6 +673,7 @@ class _$_LoadFailure implements _LoadFailure {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -811,11 +683,105 @@ class _$_LoadFailure implements _LoadFailure {
   }
 }
 
-abstract class _LoadFailure implements SubjectWatcherState {
-  const factory _LoadFailure(FirebaseFailure firbaseFailure) = _$_LoadFailure;
+abstract class _LoadFailure implements UsersWatcherState {
+  const factory _LoadFailure(FirebaseFailure firebaseFailure) = _$_LoadFailure;
 
-  FirebaseFailure get firbaseFailure => throw _privateConstructorUsedError;
+  FirebaseFailure get firebaseFailure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$EmptyCopyWith<$Res> {
+  factory _$EmptyCopyWith(_Empty value, $Res Function(_Empty) then) =
+      __$EmptyCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$EmptyCopyWithImpl<$Res> extends _$UsersWatcherStateCopyWithImpl<$Res>
+    implements _$EmptyCopyWith<$Res> {
+  __$EmptyCopyWithImpl(_Empty _value, $Res Function(_Empty) _then)
+      : super(_value, (v) => _then(v as _Empty));
+
+  @override
+  _Empty get _value => super._value as _Empty;
+}
+
+/// @nodoc
+class _$_Empty implements _Empty {
+  const _$_Empty();
+
+  @override
+  String toString() {
+    return 'UsersWatcherState.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Empty);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(List<User> users) loadSuccess,
+    required TResult Function(FirebaseFailure firebaseFailure) loadFailure,
+    required TResult Function() empty,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<User> users)? loadSuccess,
+    TResult Function(FirebaseFailure firebaseFailure)? loadFailure,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Empty implements UsersWatcherState {
+  const factory _Empty() = _$_Empty;
 }

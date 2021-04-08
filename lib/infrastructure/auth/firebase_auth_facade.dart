@@ -9,9 +9,11 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;
 
 import 'package:academic_master/infrastructure/core/firestore_helpers.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import "./firebase_user_mapper.dart";
 
 @LazySingleton(as: IAuthFacade)
@@ -62,6 +64,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         college: College(collegeStr),
         year: Year(yearStr),
       );
+
       await createUserToFirestore(user);
 
       return right(unit);
@@ -87,9 +90,10 @@ class FirebaseAuthFacade implements IAuthFacade {
         email: emailAddressStr,
         password: passwordStr,
       );
-
+      debugPrint("i m done here");
       return right(unit);
     } on FirebaseAuthException catch (e) {
+      debugPrint("i m not done here.......$e");
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
@@ -146,10 +150,16 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   Future<Either<AuthFailure, Unit>> createUserToFirestore(User user) async {
     try {
+      final userCollection = await _firestore.usersCollection();
+
       final userDto = UserDto.fromDomain(user);
-      final userCollection = await _firestore.usersCollection(userDto);
 
       await userCollection.doc(userDto.id).set(userDto.toJson());
+
+      // final SharedPreferences prefs = await SharedPreferences.getInstance();
+      // int counter = (prefs.getInt('counter') ?? 0) + 1;
+
+      // await prefs.setInt('counter', counter)..prefs.set;
 
       return right(unit);
     } on FirebaseException catch (_) {

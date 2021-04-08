@@ -10,28 +10,39 @@ import 'package:academic_master/presentation/theme/theme.dart';
 //import 'package:academic_master/presentation/sign_in/widgets/sign_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:nil/nil.dart';
 import 'package:provider/provider.dart';
 
 class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    ScreenUtil.init(
+      BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width,
+          maxHeight: MediaQuery.of(context).size.height),
+    );
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-            elevation: 0,
-            leading: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
-                color: Apptheme.secondaryColor,
-              ),
-              child: const Icon(
-                Icons.arrow_back,
-              ),
-            )),
+          elevation: 0,
+          leading: ScreenUtil().screenWidth < 451
+              ? Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
+                    color: Apptheme.secondaryColor,
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back,
+                  ),
+                )
+              : nil,
+        ),
         body: MultiBlocProvider(
           providers: [
             BlocProvider(
@@ -44,15 +55,16 @@ class SignInPage extends StatelessWidget {
               create: (context) => getIt<ForgotPasswordBloc>(),
             ),
           ],
-          child: Center(
-              child: Container(
+          child: Container(
             constraints: BoxConstraints(
-              maxWidth: size.width > 850 ? size.width * 0.6 : size.width,
+              maxWidth: ScreenUtil().screenWidth,
+
+              // : ScreenUtil().screenWidth,
             ),
             child: Consumer<AuthTabProvider>(
               builder: (context, value, child) => getForm(value.tab),
             ),
-          )),
+          ),
         ),
       ),
     );

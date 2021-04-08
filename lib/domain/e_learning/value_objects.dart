@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:academic_master/domain/core/failures.dart';
 import 'package:academic_master/domain/core/value_objects.dart';
 import 'package:academic_master/domain/core/value_validators.dart';
+import 'package:kt_dart/collection.dart';
 
 class SubjectName extends ValueObject<String> {
   @override
@@ -67,6 +68,43 @@ class SubjectIcon extends ValueObject<String> {
   }
 
   const SubjectIcon._(this.value);
+}
+
+class SubjectColor extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  static const maxLength = 6;
+  factory SubjectColor(String input) {
+    return SubjectColor._(
+      validateColorCode(input),
+    );
+  }
+
+  const SubjectColor._(this.value);
+}
+
+class List3<T> extends ValueObject<KtList<T>> {
+  @override
+  final Either<ValueFailure<KtList<T>>, KtList<T>> value;
+
+  static const maxLength = 50;
+
+  factory List3(KtList<T> input) {
+    assert(input != null);
+    return List3._(
+      validateMaxListLength(input, maxLength),
+    );
+  }
+
+  const List3._(this.value);
+
+  int get length {
+    return value.getOrElse(() => emptyList()).size;
+  }
+
+  bool get isFull {
+    return length == maxLength;
+  }
 }
 
 // class SubjectVideoTutorial extends ValueObject<List> {
