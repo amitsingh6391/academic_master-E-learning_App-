@@ -1,6 +1,7 @@
 import 'package:academic_master/presentation/core/provider_injection.dart';
 import 'package:academic_master/presentation/routes/router.gr.dart';
 import 'package:academic_master/presentation/theme/theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:academic_master/application/auth/auth_bloc.dart';

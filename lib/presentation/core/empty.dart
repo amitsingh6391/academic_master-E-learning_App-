@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class EmptyScreen extends StatelessWidget {
   final String message;
-  const EmptyScreen({required Key key, required this.message})
-      : super(key: key);
+  const EmptyScreen({Key? key, required this.message}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(

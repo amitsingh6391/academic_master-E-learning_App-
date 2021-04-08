@@ -17,17 +17,13 @@ class _$SubjectTearOff {
   const _$SubjectTearOff();
 
   _Subject call(
-      {required SubjectName subjectName,
+      {required String id,
       required SubjectIcon subjectIcon,
-      required SubjectNote subjectNote,
-      required SubjectPaper subjectPaper,
-      required SubjectSyllaybus subjectSyllaybus}) {
+      required List3<StudyMaterial> studyMaterial}) {
     return _Subject(
-      subjectName: subjectName,
+      id: id,
       subjectIcon: subjectIcon,
-      subjectNote: subjectNote,
-      subjectPaper: subjectPaper,
-      subjectSyllaybus: subjectSyllaybus,
+      studyMaterial: studyMaterial,
     );
   }
 }
@@ -37,11 +33,9 @@ const $Subject = _$SubjectTearOff();
 
 /// @nodoc
 mixin _$Subject {
-  SubjectName get subjectName => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   SubjectIcon get subjectIcon => throw _privateConstructorUsedError;
-  SubjectNote get subjectNote => throw _privateConstructorUsedError;
-  SubjectPaper get subjectPaper => throw _privateConstructorUsedError;
-  SubjectSyllaybus get subjectSyllaybus => throw _privateConstructorUsedError;
+  List3<StudyMaterial> get studyMaterial => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubjectCopyWith<Subject> get copyWith => throw _privateConstructorUsedError;
@@ -52,11 +46,7 @@ abstract class $SubjectCopyWith<$Res> {
   factory $SubjectCopyWith(Subject value, $Res Function(Subject) then) =
       _$SubjectCopyWithImpl<$Res>;
   $Res call(
-      {SubjectName subjectName,
-      SubjectIcon subjectIcon,
-      SubjectNote subjectNote,
-      SubjectPaper subjectPaper,
-      SubjectSyllaybus subjectSyllaybus});
+      {String id, SubjectIcon subjectIcon, List3<StudyMaterial> studyMaterial});
 }
 
 /// @nodoc
@@ -69,33 +59,23 @@ class _$SubjectCopyWithImpl<$Res> implements $SubjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? subjectName = freezed,
+    Object? id = freezed,
     Object? subjectIcon = freezed,
-    Object? subjectNote = freezed,
-    Object? subjectPaper = freezed,
-    Object? subjectSyllaybus = freezed,
+    Object? studyMaterial = freezed,
   }) {
     return _then(_value.copyWith(
-      subjectName: subjectName == freezed
-          ? _value.subjectName
-          : subjectName // ignore: cast_nullable_to_non_nullable
-              as SubjectName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       subjectIcon: subjectIcon == freezed
           ? _value.subjectIcon
           : subjectIcon // ignore: cast_nullable_to_non_nullable
               as SubjectIcon,
-      subjectNote: subjectNote == freezed
-          ? _value.subjectNote
-          : subjectNote // ignore: cast_nullable_to_non_nullable
-              as SubjectNote,
-      subjectPaper: subjectPaper == freezed
-          ? _value.subjectPaper
-          : subjectPaper // ignore: cast_nullable_to_non_nullable
-              as SubjectPaper,
-      subjectSyllaybus: subjectSyllaybus == freezed
-          ? _value.subjectSyllaybus
-          : subjectSyllaybus // ignore: cast_nullable_to_non_nullable
-              as SubjectSyllaybus,
+      studyMaterial: studyMaterial == freezed
+          ? _value.studyMaterial
+          : studyMaterial // ignore: cast_nullable_to_non_nullable
+              as List3<StudyMaterial>,
     ));
   }
 }
@@ -106,11 +86,7 @@ abstract class _$SubjectCopyWith<$Res> implements $SubjectCopyWith<$Res> {
       __$SubjectCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SubjectName subjectName,
-      SubjectIcon subjectIcon,
-      SubjectNote subjectNote,
-      SubjectPaper subjectPaper,
-      SubjectSyllaybus subjectSyllaybus});
+      {String id, SubjectIcon subjectIcon, List3<StudyMaterial> studyMaterial});
 }
 
 /// @nodoc
@@ -124,33 +100,23 @@ class __$SubjectCopyWithImpl<$Res> extends _$SubjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subjectName = freezed,
+    Object? id = freezed,
     Object? subjectIcon = freezed,
-    Object? subjectNote = freezed,
-    Object? subjectPaper = freezed,
-    Object? subjectSyllaybus = freezed,
+    Object? studyMaterial = freezed,
   }) {
     return _then(_Subject(
-      subjectName: subjectName == freezed
-          ? _value.subjectName
-          : subjectName // ignore: cast_nullable_to_non_nullable
-              as SubjectName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       subjectIcon: subjectIcon == freezed
           ? _value.subjectIcon
           : subjectIcon // ignore: cast_nullable_to_non_nullable
               as SubjectIcon,
-      subjectNote: subjectNote == freezed
-          ? _value.subjectNote
-          : subjectNote // ignore: cast_nullable_to_non_nullable
-              as SubjectNote,
-      subjectPaper: subjectPaper == freezed
-          ? _value.subjectPaper
-          : subjectPaper // ignore: cast_nullable_to_non_nullable
-              as SubjectPaper,
-      subjectSyllaybus: subjectSyllaybus == freezed
-          ? _value.subjectSyllaybus
-          : subjectSyllaybus // ignore: cast_nullable_to_non_nullable
-              as SubjectSyllaybus,
+      studyMaterial: studyMaterial == freezed
+          ? _value.studyMaterial
+          : studyMaterial // ignore: cast_nullable_to_non_nullable
+              as List3<StudyMaterial>,
     ));
   }
 }
@@ -158,58 +124,43 @@ class __$SubjectCopyWithImpl<$Res> extends _$SubjectCopyWithImpl<$Res>
 /// @nodoc
 class _$_Subject extends _Subject {
   const _$_Subject(
-      {required this.subjectName,
+      {required this.id,
       required this.subjectIcon,
-      required this.subjectNote,
-      required this.subjectPaper,
-      required this.subjectSyllaybus})
+      required this.studyMaterial})
       : super._();
 
   @override
-  final SubjectName subjectName;
+  final String id;
   @override
   final SubjectIcon subjectIcon;
   @override
-  final SubjectNote subjectNote;
-  @override
-  final SubjectPaper subjectPaper;
-  @override
-  final SubjectSyllaybus subjectSyllaybus;
+  final List3<StudyMaterial> studyMaterial;
 
   @override
   String toString() {
-    return 'Subject(subjectName: $subjectName, subjectIcon: $subjectIcon, subjectNote: $subjectNote, subjectPaper: $subjectPaper, subjectSyllaybus: $subjectSyllaybus)';
+    return 'Subject(id: $id, subjectIcon: $subjectIcon, studyMaterial: $studyMaterial)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Subject &&
-            (identical(other.subjectName, subjectName) ||
-                const DeepCollectionEquality()
-                    .equals(other.subjectName, subjectName)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.subjectIcon, subjectIcon) ||
                 const DeepCollectionEquality()
                     .equals(other.subjectIcon, subjectIcon)) &&
-            (identical(other.subjectNote, subjectNote) ||
+            (identical(other.studyMaterial, studyMaterial) ||
                 const DeepCollectionEquality()
-                    .equals(other.subjectNote, subjectNote)) &&
-            (identical(other.subjectPaper, subjectPaper) ||
-                const DeepCollectionEquality()
-                    .equals(other.subjectPaper, subjectPaper)) &&
-            (identical(other.subjectSyllaybus, subjectSyllaybus) ||
-                const DeepCollectionEquality()
-                    .equals(other.subjectSyllaybus, subjectSyllaybus)));
+                    .equals(other.studyMaterial, studyMaterial)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(subjectName) ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(subjectIcon) ^
-      const DeepCollectionEquality().hash(subjectNote) ^
-      const DeepCollectionEquality().hash(subjectPaper) ^
-      const DeepCollectionEquality().hash(subjectSyllaybus);
+      const DeepCollectionEquality().hash(studyMaterial);
 
   @JsonKey(ignore: true)
   @override
@@ -219,23 +170,17 @@ class _$_Subject extends _Subject {
 
 abstract class _Subject extends Subject {
   const factory _Subject(
-      {required SubjectName subjectName,
+      {required String id,
       required SubjectIcon subjectIcon,
-      required SubjectNote subjectNote,
-      required SubjectPaper subjectPaper,
-      required SubjectSyllaybus subjectSyllaybus}) = _$_Subject;
+      required List3<StudyMaterial> studyMaterial}) = _$_Subject;
   const _Subject._() : super._();
 
   @override
-  SubjectName get subjectName => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
   SubjectIcon get subjectIcon => throw _privateConstructorUsedError;
   @override
-  SubjectNote get subjectNote => throw _privateConstructorUsedError;
-  @override
-  SubjectPaper get subjectPaper => throw _privateConstructorUsedError;
-  @override
-  SubjectSyllaybus get subjectSyllaybus => throw _privateConstructorUsedError;
+  List3<StudyMaterial> get studyMaterial => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SubjectCopyWith<_Subject> get copyWith =>

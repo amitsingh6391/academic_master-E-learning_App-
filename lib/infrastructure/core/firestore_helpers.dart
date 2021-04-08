@@ -1,4 +1,5 @@
 import 'package:academic_master/domain/auth/i_auth_facade.dart';
+import 'package:academic_master/domain/auth/user.dart';
 
 import 'package:academic_master/domain/core/errors.dart';
 import 'package:academic_master/infrastructure/core/user_dtos.dart';
@@ -10,28 +11,32 @@ extension FirestoreX on FirebaseFirestore {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
     return FirebaseFirestore.instance
-        .collection("user")
+        .collection("users")
         .doc(user.id.getorCrash());
   }
 
-  Future<CollectionReference> usersCollection(UserDto userDto) async {
-    return FirebaseFirestore.instance
-        .collection('courses')
-        .doc(userDto.course)
-        .collection("branch")
-        .doc(userDto.branch)
-        .collection(userDto.year)
-        .doc("profile_detail")
-        .collection("profile_information");
+  // Future<DocumentReference> studyMaterial() async {
+  //   final userOption = await getIt<IAuthFacade>().getSignedInUser();
+  //   final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+  //   return FirebaseFirestore.instance
+  //       .collection("courses")
+  //       .doc(user.course.getorCrash())
+  //       .collection("branch")
+  //       .doc(user.branch.getorCrash())
+  //       .collection(user.year.getorCrash())
+  //       .doc("studyMaterial");
+  // }
+
+  Future<CollectionReference> usersCollection() async {
+    return FirebaseFirestore.instance.collection("users");
   }
 
-  Future<CollectionReference> subjectCollection() async {
-    UserDto? userDto;
+  Future<CollectionReference> subjectCollection(User user) async {
     return FirebaseFirestore.instance
         .collection('courses')
-        .doc(userDto!.course)
+        .doc(user.course.getorCrash())
         .collection("branch")
-        .doc(userDto.branch)
-        .collection(userDto.year);
+        .doc(user.branch.getorCrash())
+        .collection(user.year.getorCrash());
   }
 }

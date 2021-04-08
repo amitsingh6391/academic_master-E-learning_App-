@@ -3,8 +3,10 @@ import 'package:academic_master/application/auth/register_form/register_form_blo
 import 'package:academic_master/injection.dart';
 import 'package:academic_master/presentation/core/custum_textfield.dart';
 import 'package:academic_master/presentation/core/loading.dart';
+import 'package:academic_master/presentation/routes/router.gr.dart';
 import 'package:academic_master/presentation/theme/theme.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +37,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   late String finalCourse = "btech";
   late String finalBranch = "cse";
-  late String finalYear = "first_year";
+  late String finalYear = "firstYear";
 
   double btechCircleHeight = 120;
   double bpharmaCircleHeight = 120;
@@ -89,7 +91,14 @@ class _RegisterFormState extends State<RegisterForm> {
                 ),
               ).show(context);
             },
-            (_) {},
+            (_) {
+              debugPrint("i m authnicated");
+              AutoRouter.of(context).replace(const Homepage());
+
+              context
+                  .read<AuthBloc>()
+                  .add(const AuthEvent.authCheckRequested());
+            },
           ),
         );
       }, builder: (context, state) {
@@ -615,7 +624,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                             fourthYearCircleColor =
                                                 Apptheme.secondaryColor;
 
-                                            finalYear = "first_year";
+                                            finalYear = "firstYear";
                                           });
                                         },
                                         onDoubleTap: () {
@@ -648,7 +657,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                                 Apptheme.secondaryColor;
                                             fourthYearCircleColor =
                                                 Apptheme.secondaryColor;
-                                            finalYear = "second_year";
+                                            finalYear = "secondYear";
                                           });
                                         },
                                         onDoubleTap: () {
@@ -687,7 +696,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                                   Apptheme.secondaryColor;
                                               fourthYearCircleColor =
                                                   Apptheme.secondaryColor;
-                                              finalYear = "third_year";
+                                              finalYear = "thirdYear";
                                             });
                                           },
                                           onDoubleTap: () {
@@ -720,7 +729,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                                   Apptheme.secondaryColor;
                                               secondYearCircleColor =
                                                   Apptheme.secondaryColor;
-                                              finalYear = "fourth_year";
+                                              finalYear = "fourthYear";
                                             });
                                           },
                                           onDoubleTap: () {
@@ -761,7 +770,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                             Apptheme.secondaryColor;
                                         fourthYearCircleColor =
                                             Apptheme.secondaryColor;
-                                        finalYear = "first_year";
+                                        finalYear = "firstYear";
                                       });
                                     },
                                     onDoubleTap: () {
@@ -794,7 +803,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                             Apptheme.secondaryColor;
                                         fourthYearCircleColor =
                                             Apptheme.secondaryColor;
-                                        finalYear = "second_year";
+                                        finalYear = "secondYear";
                                       });
                                     },
                                     onDoubleTap: () {

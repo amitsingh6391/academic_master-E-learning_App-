@@ -1,6 +1,9 @@
+import 'package:academic_master/domain/core/value_objects.dart';
 import 'package:academic_master/domain/e_learning/subject.dart';
+import 'package:academic_master/domain/e_learning/subject_material.dart';
 import 'package:academic_master/domain/e_learning/value_objects.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subject_dtos.freezed.dart';
@@ -9,37 +12,33 @@ part 'subject_dtos.g.dart';
 @freezed
 abstract class SubjectDto implements _$SubjectDto {
   const factory SubjectDto({
-    required String subjectName,
-    required String subjectNote,
-    required String subjectSyllabus,
+    @JsonKey(ignore: true) @Default("studyMaterial") String id,
     required String subjectIcon,
-    required String subjectPaper,
-    required DateTime createdAt,
-    // required List subjectVideoTutrial,
+    required List<SubjectMaterialDto> studyMaterial,
   }) = _SubjectDto;
 
   const SubjectDto._();
 
   factory SubjectDto.fromDomain(Subject subject) {
     return SubjectDto(
-      subjectName: subject.subjectName.getorCrash(),
-      subjectNote: subject.subjectNote.getorCrash(),
-      subjectSyllabus: subject.subjectSyllaybus.getorCrash(),
+      id: "studyMaterial",
       subjectIcon: subject.subjectIcon.getorCrash(),
-      subjectPaper: subject.subjectPaper.getorCrash(),
-      //subjectVideoTutrial: subject.subjectVideoTutorial,
-      createdAt: DateTime.now(),
+      studyMaterial: subject.studyMaterial
+          .getorCrash()
+          .map(
+            (todoItem) => SubjectMaterialDto.fromDomain(todoItem),
+          )
+          .asList(),
     );
   }
 
   Subject toDomain() {
     return Subject(
-      subjectName: SubjectName(subjectName),
-      subjectNote: SubjectNote(subjectNote),
-      subjectPaper: SubjectPaper(subjectPaper),
+      id: "studyMaterial",
       subjectIcon: SubjectIcon(subjectIcon),
-      subjectSyllaybus: SubjectSyllaybus(subjectSyllabus),
-      //subjectVideoTutorial: SubjectVideoTutorial(subjectVideoTutrial),
+      studyMaterial: List3(
+        studyMaterial.map((dto) => dto.toDomain()).toImmutableList(),
+      ),
     );
   }
 
@@ -48,7 +47,49 @@ abstract class SubjectDto implements _$SubjectDto {
 
   factory SubjectDto.fromFirestore(DocumentSnapshot doc) {
     return SubjectDto.fromJson(doc.data()!).copyWith(
-      subjectName: doc.id,
+      id: doc.id,
     );
   }
+}
+
+@freezed
+abstract class SubjectMaterialDto implements _$SubjectMaterialDto {
+  const SubjectMaterialDto._();
+
+  const factory SubjectMaterialDto({
+    required String id,
+    required String subjectName,
+    required String subjectNote,
+    required String subjectSyllabus,
+    required String subjectIcon,
+    required String subjectPaper,
+    required String subjectColor,
+  }) = _SubjectMaterialDto;
+
+  factory SubjectMaterialDto.fromDomain(StudyMaterial studyMaterial) {
+    return SubjectMaterialDto(
+      id: studyMaterial.id.getorCrash(),
+      subjectName: studyMaterial.subjectName.getorCrash(),
+      subjectNote: studyMaterial.subjectNote.getorCrash(),
+      subjectPaper: studyMaterial.subjectPaper.getorCrash(),
+      subjectIcon: studyMaterial.subjectIcon.getorCrash(),
+      subjectSyllabus: studyMaterial.subjectSyllaybus.getorCrash(),
+      subjectColor: studyMaterial.subjectColor.getorCrash(),
+    );
+  }
+
+  StudyMaterial toDomain() {
+    return StudyMaterial(
+      id: UniqueId.fromUniqueString(id),
+      subjectName: SubjectName(subjectName),
+      subjectNote: SubjectNote(subjectNote),
+      subjectPaper: SubjectPaper(subjectPaper),
+      subjectIcon: SubjectIcon(subjectIcon),
+      subjectSyllaybus: SubjectSyllaybus(subjectSyllabus),
+      subjectColor: SubjectColor(subjectColor),
+    );
+  }
+
+  factory SubjectMaterialDto.fromJson(Map<String, dynamic> json) =>
+      _$SubjectMaterialDtoFromJson(json);
 }

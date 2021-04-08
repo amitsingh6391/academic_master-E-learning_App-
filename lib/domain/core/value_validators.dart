@@ -1,6 +1,7 @@
 import 'package:academic_master/domain/core/failures.dart';
 
 import 'package:dartz/dartz.dart';
+import 'package:kt_dart/collection.dart';
 
 Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
@@ -15,6 +16,20 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
         maxLength,
       ),
     );
+  }
+}
+
+Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
+  KtList<T> input,
+  int maxLength,
+) {
+  if (input.size <= maxLength) {
+    return right(input);
+  } else {
+    return left(ValueFailure.listTooLong(
+      failedValue: input,
+      max: maxLength,
+    ));
   }
 }
 
@@ -52,6 +67,14 @@ Either<ValueFailure<String>, String> validateVideoUrl(String input) {
       r"""^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$""";
 
   if (RegExp(videoRegex).hasMatch(input)) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidEmail(input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateColorCode(String input) {
+  if (input.length == 10) {
     return right(input);
   } else {
     return left(ValueFailure.invalidEmail(input));

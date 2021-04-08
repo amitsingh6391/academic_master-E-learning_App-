@@ -11,10 +11,20 @@ class Apptheme {
   static const secondaryColor = Color(0xffD8EAF2);
   static const assentColor = Color(0xff253157);
 
-  TextStyle bold = const TextStyle(
-    fontSize: 40,
+  TextStyle boldText = const TextStyle(
     color: assentColor,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w900,
+    fontFamily: "Circular_Bold",
+  );
+  TextStyle thinText = const TextStyle(
+    color: assentColor,
+    fontWeight: FontWeight.w100,
+    //fontFamily: "Circular_Bold",
+  );
+  TextStyle normalText = const TextStyle(
+    color: assentColor,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Circular_Bold",
   );
 
   static ThemeData theme = ThemeData(
