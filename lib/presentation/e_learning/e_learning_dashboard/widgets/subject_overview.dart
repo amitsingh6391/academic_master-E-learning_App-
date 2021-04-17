@@ -11,8 +11,9 @@ import 'package:academic_master/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:lottie/lottie.dart';
+
 import 'package:nil/nil.dart';
 
 import 'package:flutter/widgets.dart';
@@ -29,11 +30,10 @@ class SubjectOverView extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           initial: (_) => Container(),
-          loadInProgress: (_) => Loading(),
+          loadInProgress: (_) => FindLoading(),
           loadSuccess: (state) {
             return SizedBox(
-              height: 230.h,
-              // width: 1.sw > 450 ? 1.sw / 2 : 1.sw,
+              height: 1.sw > 450 ? 400.h : 230.h,
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
@@ -109,7 +109,7 @@ class SubjectHeader extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         left: 20.h,
-        top: 20.h,
+        top: 1.sw > 450 ? 1.h : 20.h,
       ),
       child: Row(
         children: [
@@ -117,7 +117,7 @@ class SubjectHeader extends StatelessWidget {
             "Subjects",
             textAlign: TextAlign.end,
             style: Apptheme(context).thinText.copyWith(
-                  fontSize: 15.h,
+                  fontSize: 20.sp,
                 ),
           ),
           SizedBox(
@@ -162,30 +162,33 @@ class SubjectDisplay extends StatelessWidget {
       child: Wrap(
         children: [
           Container(
-            height: 130.h,
-            width: 130.h,
+            height: 1.sw > 450 ? 200.h : 130.h,
+            width: 1.sw > 450 ? 1.sw / 3 : 130.h,
             decoration: BoxDecoration(
               color: Color(int.parse(studyMaterials.subjectColor.getorCrash())),
+              // color: Apptheme.secondaryColor,
               borderRadius: BorderRadius.circular(20.h),
             ),
             child: Padding(
               padding: EdgeInsets.only(
                 left: 10.h,
                 right: 10.h,
-                top: 10.h,
+                top: 1.sw > 450 ? 30.h : 20.h,
               ),
               child: Column(
                 children: [
                   Center(
-                    child: Lottie.network(
-                      studyMaterials.subjectIcon.getorCrash(),
-                      height: 85.h,
-                      width: 70.h,
+                      child: SvgPicture.network(
+                    studyMaterials.subjectIcon.getorCrash(),
+                    height: 1.sw > 450 ? 100.h : 70.h,
+                  )),
+                  Padding(
+                    padding: EdgeInsets.only(top: 1.sw > 450 ? 16.h : 15.h),
+                    child: Text(
+                      studyMaterials.subjectName.getorCrash(),
+                      style:
+                          Apptheme(context).boldText.copyWith(fontSize: 17.sp),
                     ),
-                  ),
-                  Text(
-                    studyMaterials.subjectName.getorCrash(),
-                    style: Apptheme(context).boldText.copyWith(fontSize: 10.h),
                   ),
                 ],
               ),

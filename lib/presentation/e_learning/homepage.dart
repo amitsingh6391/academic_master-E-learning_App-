@@ -1,22 +1,28 @@
 import 'package:academic_master/application/auth/auth_bloc.dart';
+import 'package:academic_master/application/e_learning/question_watcher/question_watcher_bloc.dart';
+
 import 'package:academic_master/application/e_learning/subject_watcher/subject_watcher_bloc.dart';
 import 'package:academic_master/application/e_learning/users_watcher/users_watcher_bloc.dart';
+
 import 'package:academic_master/injection.dart';
-import 'package:academic_master/presentation/auth/sign_in_page.dart';
+
 import 'package:academic_master/presentation/e_learning/e_learning_dashboard/dashboard.dart';
+import 'package:academic_master/presentation/e_learning/subjects/subjects.dart';
 import 'package:academic_master/presentation/routes/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:line_icons/line_icon.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 import 'package:academic_master/presentation/theme/theme.dart';
 
 // ignore: must_be_immutable
-class Homepage extends StatelessWidget {
+class Homepage extends HookWidget {
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
 
@@ -40,6 +46,10 @@ class Homepage extends StatelessWidget {
           create: (context) => getIt<UsersWatcherBloc>()
             ..add(const UsersWatcherEvent.watchAllUsers()),
         ),
+        BlocProvider<QuestionWatcherBloc>(
+          create: (context) => getIt<QuestionWatcherBloc>()
+            ..add(const QuestionWatcherEvent.watchAllQuestions()),
+        ),
       ],
       child: MultiBlocListener(
         listeners: [
@@ -58,7 +68,7 @@ class Homepage extends StatelessWidget {
           controller: _controller,
           screens: [
             Dashboard(),
-            Text("hiii"),
+            Subjects(),
             Text("3"),
             Text("4"),
           ],
@@ -84,46 +94,42 @@ class Homepage extends StatelessWidget {
             duration: Duration(milliseconds: 600),
           ),
           navBarStyle: NavBarStyle
-              .style1, // Choose the nav bar style with this property.
+              .style3, // Choose the nav bar style with this property.
         ),
       ),
     );
   }
-}
 
-List<PersistentBottomNavBarItem> _navBarsItems() {
-  return [
-    PersistentBottomNavBarItem(
-      icon: const Icon(
-        Icons.home,
-        size: 35,
+  List<PersistentBottomNavBarItem> _navBarsItems() {
+    return [
+      PersistentBottomNavBarItem(
+        icon: LineIcon.home(
+          size: 35,
+        ),
+        activeColorPrimary: Apptheme.primaryColor,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
-      activeColorPrimary: Apptheme.primaryColor,
-      inactiveColorPrimary: CupertinoColors.systemGrey,
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(
-        Icons.notes,
-        size: 35,
+      PersistentBottomNavBarItem(
+        icon: LineIcon.bookReader(
+          size: 35,
+        ),
+        activeColorPrimary: Apptheme.primaryColor,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
-      activeColorPrimary: Apptheme.primaryColor,
-      inactiveColorPrimary: CupertinoColors.systemGrey,
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(
-        Icons.video_collection,
-        size: 35,
+      PersistentBottomNavBarItem(
+        icon: LineIcon.youtube(
+          size: 35,
+        ),
+        activeColorPrimary: Apptheme.primaryColor,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
-      activeColorPrimary: Apptheme.primaryColor,
-      inactiveColorPrimary: CupertinoColors.systemGrey,
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(
-        Icons.person,
-        size: 35,
+      PersistentBottomNavBarItem(
+        icon: LineIcon.userGraduate(
+          size: 35,
+        ),
+        activeColorPrimary: Apptheme.primaryColor,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
-      activeColorPrimary: Apptheme.primaryColor,
-      inactiveColorPrimary: CupertinoColors.systemGrey,
-    ),
-  ];
+    ];
+  }
 }

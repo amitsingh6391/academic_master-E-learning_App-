@@ -56,6 +56,7 @@ abstract class SubjectDto implements _$SubjectDto {
 abstract class SubjectMaterialDto implements _$SubjectMaterialDto {
   const SubjectMaterialDto._();
 
+  // ignore: sort_unnamed_constructors_first
   const factory SubjectMaterialDto({
     required String id,
     required String subjectName,

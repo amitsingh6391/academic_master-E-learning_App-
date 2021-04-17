@@ -18,22 +18,26 @@ dependencies:
   cloud_firestore: ^1.0.3
   dartdap: ^0.6.0
   dartz: ^0.10.0-nullsafety.1
- 
- 
   equatable: ^2.0.0
+  file_picker: ^3.0.1
+  firebase: ^9.0.1
   firebase_auth: ^1.0.1
   firebase_core: ^1.0.2
   firebase_storage: ^8.0.1
+  flip_card: ^0.5.0
   flutter_bloc: ^7.0.0
+  flutter_cached_pdfview: ^0.4.0-nullsafety
   flutter_hooks: ^0.16.0
+  flutter_screenutil: ^5.0.0-nullsafety.11
   flutter_signin_button: ^2.0.0-nullsafety.0
   flutter_slidable: ^0.5.7
-  flutter_svg: ^0.21.0-nullsafety.0
+  flutter_svg: ^0.21.0+1
   flutter_zoom_drawer: ^2.0.1
   freezed_annotation: ^0.14.1
   get_it: ^6.0.0
   google_fonts: ^2.0.0
   google_sign_in: ^5.0.1
+  http: ^0.13.1
   injectable: ^1.2.0
   json_annotation: ^4.0.0
   kt_dart: ^0.9.0
@@ -44,10 +48,11 @@ dependencies:
   persistent_bottom_nav_bar: ^4.0.2
   provider: ^5.0.0
   responsive_framework: ^0.1.0
-  shared_preferences: ^2.0.5
-  flutter_screenutil: ^5.0.0-nullsafety.11
   rxdart: ^0.26.0
+  shared_preferences: ^2.0.5
+  url_launcher: ^6.0.3
   uuid: ^3.0.2
+  webview_flutter: ^2.0.4
 
 dev_dependencies:
   flutter_test:

@@ -112,7 +112,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   Positioned(
                     top: size.height * 0.28,
                     left: size.width * 0.4,
-                    child: Loading(),
+                    child: CircleLoading(),
                   ),
                 const SizedBox(height: 30),
                 Stepper(

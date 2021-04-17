@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.academic.master">
+
+     
+     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+     
    <application
         android:label="academic_master"
         android:icon="@mipmap/ic_launcher">
