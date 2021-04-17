@@ -1,19 +1,23 @@
+import 'package:academic_master/application/auth/auth_bloc.dart';
 import 'package:academic_master/domain/auth/user.dart' as loacal;
 import 'package:academic_master/domain/auth/user.dart';
-
+import 'package:firebase/firebase.dart' as firebase;
 import 'package:academic_master/domain/core/firebase_failures.dart';
 import 'package:academic_master/domain/e_learning/i_e_learning_repository.dart';
+import 'package:academic_master/domain/e_learning/question.dart';
 import 'package:academic_master/domain/e_learning/subject.dart';
 import 'package:academic_master/infrastructure/core/user_dtos.dart';
+import 'package:academic_master/infrastructure/e_learning/question_dtos.dart';
 
 import 'package:academic_master/infrastructure/e_learning/subject_dtos.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fbauth;
 import 'package:academic_master/infrastructure/core/firestore_helpers.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IElearningRepository)
@@ -37,6 +41,7 @@ class ElearningRepository implements IElearningRepository {
           ),
         )
         .handleError((e) {
+      debugPrint(".......$e ");
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const FirebaseFailure.insufficientPermission());
       } else {
@@ -54,11 +59,10 @@ class ElearningRepository implements IElearningRepository {
       user = UserDto.fromJson(value.data()!).toDomain();
     });
 
-    final subjectCollections = await _firestore.subjectCollection(user!);
+    final subjectCollection = await _firestore.subjectCollection(user!);
+    debugPrint(".......subjectcollection {$subjectCollection.toString()}");
 
-    debugPrint(".......subjectcollection {$subjectCollections.toString()}");
-
-    yield* subjectCollections
+    yield* subjectCollection
         .snapshots()
         .map(
           (snapshot) => right<FirebaseFailure, KtList<Subject>>(
@@ -68,12 +72,157 @@ class ElearningRepository implements IElearningRepository {
           ),
         )
         .handleError((e) {
-      debugPrint("i m error   .......................   $e");
+      debugPrint("i m error subject not got .......................   $e");
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const FirebaseFailure.insufficientPermission());
       } else {
         return left(const FirebaseFailure.unexpected());
       }
     });
+  }
+
+  @override
+  Future<Either<FirebaseFailure, Unit>> createQuestion(
+      FilePickerResult file, Question question) async {
+    try {
+      final userDoc = await _firestore.usersCollection();
+      final currentUser = _firebaseAuth.currentUser!.uid;
+      User? user;
+      await userDoc.doc(currentUser).get().then((value) {
+        user = UserDto.fromJson(value.data()!).toDomain();
+      });
+
+      final questionsCollection = await _firestore.questionCollection(user!);
+
+      final uriOrFailure = await uploadQuestionImage(file);
+
+      final uriPath =
+          uriOrFailure.getOrElse(() => throw const Unauthenticated());
+
+      debugPrint("........uripath........$uriPath");
+
+      final questionDto = QuestionDto.fromDomain(question).copyWith(
+        mediaUrl: uriPath,
+        userId: _firebaseAuth.currentUser!.uid,
+      );
+      debugPrint("now my questiondto are >>>>>>>>>>.$questionDto");
+
+      // final questionDto = QuestionDto.fromDomain(question);
+
+      await questionsCollection
+          .doc(questionDto.questionId)
+          .set(questionDto.toJson());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const FirebaseFailure.insufficientPermission());
+      } else {
+        return left(const FirebaseFailure.unexpected());
+      }
+    }
+  }
+
+  @override
+  Future<Either<FirebaseFailure, Unit>> updateQuestion(
+      Question question) async {
+    try {
+      final userDoc = await _firestore.usersCollection();
+      final currentUser = _firebaseAuth.currentUser!.uid;
+      User? user;
+      await userDoc.doc(currentUser).get().then((value) {
+        user = UserDto.fromJson(value.data()!).toDomain();
+      });
+      final questionsCollection = await _firestore.questionCollection(user!);
+      final questionDto = QuestionDto.fromDomain(question);
+
+      await questionsCollection
+          .doc(questionDto.questionId)
+          .update(questionDto.toJson());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const FirebaseFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const FirebaseFailure.unableToUpdate());
+      } else {
+        return left(const FirebaseFailure.unexpected());
+      }
+    }
+  }
+
+  @override
+  Future<Either<FirebaseFailure, Unit>> deleteQuestion(
+      Question question) async {
+    try {
+      final userDoc = await _firestore.usersCollection();
+      final currentUser = _firebaseAuth.currentUser!.uid;
+      User? user;
+      await userDoc.doc(currentUser).get().then((value) {
+        user = UserDto.fromJson(value.data()!).toDomain();
+      });
+      final questionCollection = await _firestore.questionCollection(user!);
+      final questionId = question.questionId.getorCrash();
+
+      await questionCollection.doc(questionId).delete();
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const FirebaseFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const FirebaseFailure.unableToUpdate());
+      } else {
+        return left(const FirebaseFailure.unexpected());
+      }
+    }
+  }
+
+  @override
+  Stream<Either<FirebaseFailure, KtList<Question>>> watchAllQuestion() async* {
+    final userDoc = await _firestore.usersCollection();
+    final currentUser = _firebaseAuth.currentUser!.uid;
+    User? user;
+    await userDoc.doc(currentUser).get().then((value) {
+      user = UserDto.fromJson(value.data()!).toDomain();
+    });
+
+    final questionCollection = await _firestore.questionCollection(user!);
+
+    yield* questionCollection
+        .snapshots()
+        .map(
+          (snapshot) => right<FirebaseFailure, KtList<Question>>(
+            snapshot.docs
+                .map((doc) => QuestionDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+        )
+        .handleError((e) {
+      debugPrint("i m error  question section .......................   $e");
+      if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
+        return left(const FirebaseFailure.insufficientPermission());
+      } else {
+        return left(const FirebaseFailure.unexpected());
+      }
+    });
+  }
+
+  Future<Either<FirebaseFailure, String>> uploadQuestionImage(
+      FilePickerResult file) async {
+    try {
+      final storageReference =
+          firebase.storage().ref('questions').child(file.files.single.name!);
+      final firebase.UploadTaskSnapshot uploadTaskSnapshot =
+          await storageReference.put(file.files.single.bytes).future;
+      final Uri imageUri = await uploadTaskSnapshot.ref.getDownloadURL();
+      final path = Uri.parse(imageUri.toString()).toString();
+      debugPrint(">>>>>>>>>>.  i could store $path ");
+      return right(path);
+    } on FirebaseException catch (_) {
+      debugPrint(">>>>>>>>>>. i m sorry i could not store $_");
+      return left(const FirebaseFailure.unexpected());
+    }
   }
 }

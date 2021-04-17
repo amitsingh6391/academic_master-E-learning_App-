@@ -15,18 +15,6 @@ extension FirestoreX on FirebaseFirestore {
         .doc(user.id.getorCrash());
   }
 
-  // Future<DocumentReference> studyMaterial() async {
-  //   final userOption = await getIt<IAuthFacade>().getSignedInUser();
-  //   final user = userOption.getOrElse(() => throw NotAuthenticatedError());
-  //   return FirebaseFirestore.instance
-  //       .collection("courses")
-  //       .doc(user.course.getorCrash())
-  //       .collection("branch")
-  //       .doc(user.branch.getorCrash())
-  //       .collection(user.year.getorCrash())
-  //       .doc("studyMaterial");
-  // }
-
   Future<CollectionReference> usersCollection() async {
     return FirebaseFirestore.instance.collection("users");
   }
@@ -38,5 +26,16 @@ extension FirestoreX on FirebaseFirestore {
         .collection("branch")
         .doc(user.branch.getorCrash())
         .collection(user.year.getorCrash());
+  }
+
+  Future<CollectionReference> questionCollection(User user) async {
+    return FirebaseFirestore.instance
+        .collection('courses')
+        .doc(user.course.getorCrash())
+        .collection("branch")
+        .doc(user.branch.getorCrash())
+        .collection(user.year.getorCrash())
+        .doc("questions")
+        .collection("questions");
   }
 }

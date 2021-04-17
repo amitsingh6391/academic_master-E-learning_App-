@@ -5,8 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:kt_dart/collection.dart';
-import 'package:provider/provider.dart';
-
 part 'subject.freezed.dart';
 
 @freezed

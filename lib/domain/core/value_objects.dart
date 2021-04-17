@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:academic_master/domain/core/errors.dart';
 import 'package:academic_master/domain/core/failures.dart';
 import 'package:academic_master/domain/core/value_validators.dart';
@@ -128,4 +130,17 @@ class PhoneNumber extends ValueObject<String> {
   }
 
   const PhoneNumber._(this.value);
+}
+
+class MediaUrl extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory MediaUrl(String input) {
+    return MediaUrl._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const MediaUrl._(this.value);
 }

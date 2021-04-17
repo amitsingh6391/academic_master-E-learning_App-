@@ -21,7 +21,7 @@ class SubjectName extends ValueObject<String> {
 class SubjectNote extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
-  static const maxLength = 50;
+  static const maxLength = 500;
   factory SubjectNote(String input) {
     return SubjectNote._(
       validateMaxStringLength(input, maxLength),
@@ -133,15 +133,15 @@ class TopicName extends ValueObject<String> {
   const TopicName._(this.value);
 }
 
-class Description extends ValueObject<String> {
+class QuestionDescription extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
   static const maxLength = 3000;
-  factory Description(String input) {
-    return Description._(
+  factory QuestionDescription(String input) {
+    return QuestionDescription._(
       validateMaxStringLength(input, maxLength),
     );
   }
 
-  const Description._(this.value);
+  const QuestionDescription._(this.value);
 }

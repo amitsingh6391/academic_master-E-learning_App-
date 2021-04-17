@@ -1,7 +1,7 @@
 import 'package:academic_master/application/auth/auth_bloc.dart';
 import 'package:academic_master/presentation/auth/provider/auth_tab_provider.dart';
 import 'package:academic_master/presentation/core/loading.dart';
-import 'package:academic_master/presentation/core/size_config.dart';
+
 import 'package:academic_master/presentation/routes/router.gr.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
@@ -15,7 +15,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import "package:academic_master/presentation/theme/theme.dart";
-import 'package:nil/nil.dart';
+
 import 'package:provider/provider.dart';
 
 class SignInForm extends StatelessWidget {
@@ -121,7 +121,7 @@ class SignInForm extends StatelessWidget {
                 ),
               ),
               if (state.isSubmitting)
-                Loading()
+                CircleLoading()
               else
                 Padding(
                   padding: EdgeInsets.only(
