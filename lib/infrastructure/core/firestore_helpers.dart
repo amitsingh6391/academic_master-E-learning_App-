@@ -2,7 +2,6 @@ import 'package:academic_master/domain/auth/i_auth_facade.dart';
 import 'package:academic_master/domain/auth/user.dart';
 
 import 'package:academic_master/domain/core/errors.dart';
-import 'package:academic_master/infrastructure/core/user_dtos.dart';
 import 'package:academic_master/injection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

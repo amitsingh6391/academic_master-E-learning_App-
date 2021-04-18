@@ -22,7 +22,7 @@ class SubjectPdfView extends HookWidget {
             javascriptMode: JavascriptMode.unrestricted,
             onProgress: (int progress) {
               loading.value = progress;
-              print("WebView is loading (progress : $progress%)");
+              // print("WebView is loading (progress : $progress%)");
             },
             gestureNavigationEnabled: true,
           ),

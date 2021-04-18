@@ -1,5 +1,3 @@
-import 'dart:io' show Platform;
-
 import 'package:academic_master/presentation/routes/router.gr.dart';
 import 'package:academic_master/presentation/theme/theme.dart';
 import 'package:auto_route/auto_route.dart';

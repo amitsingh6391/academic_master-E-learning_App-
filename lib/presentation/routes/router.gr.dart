@@ -21,59 +21,50 @@ class AppRouter extends _i1.RootStackRouter {
   final Map<String, _i1.PageFactory> pagesMap = {
     SplashRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry,
-          child: _i2.SplashPage(),
-          maintainState: true,
-          fullscreenDialog: false);
+        entry: entry,
+        child: _i2.SplashPage(),
+      );
     },
     SignInRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry,
-          child: _i3.SignInPage(),
-          maintainState: true,
-          fullscreenDialog: false);
+        entry: entry,
+        child: _i3.SignInPage(),
+      );
     },
     Homepage.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry,
-          child: _i4.Homepage(),
-          maintainState: true,
-          fullscreenDialog: false);
+        entry: entry,
+        child: _i4.Homepage(),
+      );
     },
     SubjectPdfView.name: (entry) {
-      var args = entry.routeData.argsAs<SubjectPdfViewArgs>();
+      final args = entry.routeData.argsAs<SubjectPdfViewArgs>();
       return _i1.MaterialPageX(
-          entry: entry,
-          child: _i5.SubjectPdfView(args.url),
-          maintainState: true,
-          fullscreenDialog: false);
+        entry: entry,
+        child: _i5.SubjectPdfView(args.url),
+      );
     },
     QuestionFormRoute.name: (entry) {
-      var args = entry.routeData
-          .argsAs<QuestionFormRouteArgs>(orElse: () => QuestionFormRouteArgs());
+      final args = entry.routeData.argsAs<QuestionFormRouteArgs>(
+          orElse: () => const QuestionFormRouteArgs());
       return _i1.MaterialPageX(
-          entry: entry,
-          child: _i6.QuestionFormPage(
-              key: args.key, editedQuestion: args.editedQuestion),
-          maintainState: true,
-          fullscreenDialog: false);
+        entry: entry,
+        child: _i6.QuestionFormPage(
+            key: args.key, editedQuestion: args.editedQuestion),
+      );
     }
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SplashRoute.name,
-            path: '/', fullMatch: false, usesTabsRouter: false),
-        _i1.RouteConfig(SignInRoute.name,
-            path: '/sign-in-page', fullMatch: false, usesTabsRouter: false),
-        _i1.RouteConfig(Homepage.name,
-            path: '/Homepage', fullMatch: false, usesTabsRouter: false),
-        _i1.RouteConfig(SubjectPdfView.name,
-            path: '/subject-pdf-view', fullMatch: false, usesTabsRouter: false),
-        _i1.RouteConfig(QuestionFormRoute.name,
-            path: '/question-form-page',
-            fullMatch: false,
-            usesTabsRouter: false)
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(Homepage.name, path: '/Homepage'),
+        _i1.RouteConfig(SubjectPdfView.name, path: '/subject-pdf-view'),
+        _i1.RouteConfig(
+          QuestionFormRoute.name,
+          path: '/question-form-page',
+        )
       ];
 }
 

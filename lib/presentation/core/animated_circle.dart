@@ -7,10 +7,8 @@ class AnimatedCircle extends HookWidget {
   final String? title;
   final double height;
   final Color myCircleColor;
-  final Key? key;
   const AnimatedCircle({
     this.title = "",
-    this.key,
     this.height = 120.0,
     this.myCircleColor = Apptheme.secondaryColor,
   });
@@ -19,11 +17,11 @@ class AnimatedCircle extends HookWidget {
   Widget build(BuildContext context) {
     final myCircleHeight = useState(height);
     final myfinalCircleColor = useState(myCircleColor);
-    final myfinalBranch = useState("");
+    // final myfinalBranch = useState("");
 
     return GestureDetector(
       onTap: () {
-        print("iii");
+        //TODO
       },
       child: AnimatedContainer(
         height: myCircleHeight.value,
@@ -34,7 +32,7 @@ class AnimatedCircle extends HookWidget {
         ),
         child: Center(
           child: Text(title!,
-              style: TextStyle(fontFamily: "Circular", fontSize: 20)),
+              style: const TextStyle(fontFamily: "Circular", fontSize: 20)),
         ),
       ),
     );

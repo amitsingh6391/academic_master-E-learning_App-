@@ -23,8 +23,7 @@ import 'package:academic_master/presentation/theme/theme.dart';
 
 // ignore: must_be_immutable
 class Homepage extends HookWidget {
-  PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
+  final PersistentTabController _controller = PersistentTabController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +68,8 @@ class Homepage extends HookWidget {
           screens: [
             Dashboard(),
             Subjects(),
-            Text("3"),
-            Text("4"),
+            const Text("3"),
+            const Text("4"),
           ],
           items: _navBarsItems(),
 

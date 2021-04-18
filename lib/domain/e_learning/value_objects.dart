@@ -90,7 +90,6 @@ class List3<T> extends ValueObject<KtList<T>> {
   static const maxLength = 50;
 
   factory List3(KtList<T> input) {
-    assert(input != null);
     return List3._(
       validateMaxListLength(input, maxLength),
     );

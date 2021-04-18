@@ -59,7 +59,9 @@ class SignInForm extends StatelessWidget {
       },
       builder: (context, state) {
         final signInForm = Form(
-          autovalidate: state.showErrorMessages,
+          autovalidateMode: state.showErrorMessages
+              ? AutovalidateMode.always
+              : AutovalidateMode.disabled,
           child: ListView(
             shrinkWrap: true,
             children: [
@@ -250,10 +252,9 @@ class SignInForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        flex: 1,
                         child: buildAsset(),
                       ),
-                      Expanded(flex: 1, child: signInForm),
+                      Expanded(child: signInForm),
                     ],
                   ),
                 ),
