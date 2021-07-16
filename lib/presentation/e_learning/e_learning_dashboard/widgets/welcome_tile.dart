@@ -1,5 +1,5 @@
 import 'package:academic_master/application/e_learning/users_watcher/users_watcher_bloc.dart';
-import 'package:academic_master/presentation/core/critical_failure.dart';
+
 import 'package:academic_master/presentation/core/empty.dart';
 import 'package:academic_master/presentation/core/loading.dart';
 import 'package:academic_master/presentation/theme/theme.dart';
@@ -36,7 +36,7 @@ class WelcomeTile extends StatelessWidget {
               },
               // ignore: avoid_unnecessary_containers
               loadFailure: (state) => Container(
-                    child: Text("something wrong"),
+                    child: const Text("something wrong"),
                   ),
               empty: (state) {
                 return const EmptyScreen(

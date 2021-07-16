@@ -17,6 +17,7 @@ abstract class QuestionDto implements _$QuestionDto {
   const factory QuestionDto({
     required String questionId,
     required String userId,
+    required String name,
     required String questionDescription,
     required String mediaUrl,
     required DateTime askAt,
@@ -26,6 +27,7 @@ abstract class QuestionDto implements _$QuestionDto {
     return QuestionDto(
       questionId: question.questionId.getorCrash(),
       questionDescription: question.questionDescription.getorCrash(),
+      name: question.name.getorCrash(),
       userId: question.userId.getorCrash(),
       mediaUrl: question.mediaUrl.getorCrash(),
       askAt: DateTime.now(),
@@ -34,11 +36,12 @@ abstract class QuestionDto implements _$QuestionDto {
 
   Question toDomain() {
     return Question(
-      questionDescription: QuestionDescription(questionDescription),
-      userId: UniqueId.fromUniqueString(userId),
-      questionId: UniqueId.fromUniqueString(questionId),
-      mediaUrl: MediaUrl(mediaUrl),
-    );
+        questionDescription: QuestionDescription(questionDescription),
+        userId: UniqueId.fromUniqueString(userId),
+        name: Name(name),
+        questionId: UniqueId.fromUniqueString(questionId),
+        mediaUrl: MediaUrl(mediaUrl),
+        askAt: Time(askAt.toString()));
   }
 
   factory QuestionDto.fromJson(Map<String, dynamic> json) =>

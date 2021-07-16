@@ -1,5 +1,6 @@
 import 'package:academic_master/presentation/e_learning/e_learning_dashboard/widgets/dashboard_appbar.dart';
 import 'package:academic_master/presentation/e_learning/e_learning_dashboard/widgets/group_and_ask_question_tile.dart';
+import 'package:academic_master/presentation/e_learning/e_learning_dashboard/widgets/users_Questions/users_questions.dart';
 import 'package:academic_master/presentation/theme/theme.dart';
 
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class DashboardPage extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Apptheme.backgroundColor,
           body: SingleChildScrollView(
+            physics: const ScrollPhysics(),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -34,6 +36,7 @@ class DashboardPage extends StatelessWidget {
                   SubjectOverView()
                 else
                   GroupAndAskQuestionTile(),
+                UsersQuestions(),
               ],
             ),
           ),

@@ -19,13 +19,17 @@ class _$QuestionTearOff {
   _Question call(
       {required UniqueId questionId,
       required UniqueId userId,
+      required Name name,
       required QuestionDescription questionDescription,
-      required MediaUrl mediaUrl}) {
+      required MediaUrl mediaUrl,
+      required Time askAt}) {
     return _Question(
       questionId: questionId,
       userId: userId,
+      name: name,
       questionDescription: questionDescription,
       mediaUrl: mediaUrl,
+      askAt: askAt,
     );
   }
 }
@@ -37,9 +41,11 @@ const $Question = _$QuestionTearOff();
 mixin _$Question {
   UniqueId get questionId => throw _privateConstructorUsedError;
   UniqueId get userId => throw _privateConstructorUsedError;
+  Name get name => throw _privateConstructorUsedError;
   QuestionDescription get questionDescription =>
       throw _privateConstructorUsedError;
   MediaUrl get mediaUrl => throw _privateConstructorUsedError;
+  Time get askAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionCopyWith<Question> get copyWith =>
@@ -53,8 +59,10 @@ abstract class $QuestionCopyWith<$Res> {
   $Res call(
       {UniqueId questionId,
       UniqueId userId,
+      Name name,
       QuestionDescription questionDescription,
-      MediaUrl mediaUrl});
+      MediaUrl mediaUrl,
+      Time askAt});
 }
 
 /// @nodoc
@@ -69,8 +77,10 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
   $Res call({
     Object? questionId = freezed,
     Object? userId = freezed,
+    Object? name = freezed,
     Object? questionDescription = freezed,
     Object? mediaUrl = freezed,
+    Object? askAt = freezed,
   }) {
     return _then(_value.copyWith(
       questionId: questionId == freezed
@@ -81,6 +91,10 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
       questionDescription: questionDescription == freezed
           ? _value.questionDescription
           : questionDescription // ignore: cast_nullable_to_non_nullable
@@ -89,6 +103,10 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           ? _value.mediaUrl
           : mediaUrl // ignore: cast_nullable_to_non_nullable
               as MediaUrl,
+      askAt: askAt == freezed
+          ? _value.askAt
+          : askAt // ignore: cast_nullable_to_non_nullable
+              as Time,
     ));
   }
 }
@@ -101,8 +119,10 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   $Res call(
       {UniqueId questionId,
       UniqueId userId,
+      Name name,
       QuestionDescription questionDescription,
-      MediaUrl mediaUrl});
+      MediaUrl mediaUrl,
+      Time askAt});
 }
 
 /// @nodoc
@@ -118,8 +138,10 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
   $Res call({
     Object? questionId = freezed,
     Object? userId = freezed,
+    Object? name = freezed,
     Object? questionDescription = freezed,
     Object? mediaUrl = freezed,
+    Object? askAt = freezed,
   }) {
     return _then(_Question(
       questionId: questionId == freezed
@@ -130,6 +152,10 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
       questionDescription: questionDescription == freezed
           ? _value.questionDescription
           : questionDescription // ignore: cast_nullable_to_non_nullable
@@ -138,6 +164,10 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           ? _value.mediaUrl
           : mediaUrl // ignore: cast_nullable_to_non_nullable
               as MediaUrl,
+      askAt: askAt == freezed
+          ? _value.askAt
+          : askAt // ignore: cast_nullable_to_non_nullable
+              as Time,
     ));
   }
 }
@@ -147,8 +177,10 @@ class _$_Question extends _Question {
   const _$_Question(
       {required this.questionId,
       required this.userId,
+      required this.name,
       required this.questionDescription,
-      required this.mediaUrl})
+      required this.mediaUrl,
+      required this.askAt})
       : super._();
 
   @override
@@ -156,13 +188,17 @@ class _$_Question extends _Question {
   @override
   final UniqueId userId;
   @override
+  final Name name;
+  @override
   final QuestionDescription questionDescription;
   @override
   final MediaUrl mediaUrl;
+  @override
+  final Time askAt;
 
   @override
   String toString() {
-    return 'Question(questionId: $questionId, userId: $userId, questionDescription: $questionDescription, mediaUrl: $mediaUrl)';
+    return 'Question(questionId: $questionId, userId: $userId, name: $name, questionDescription: $questionDescription, mediaUrl: $mediaUrl, askAt: $askAt)';
   }
 
   @override
@@ -174,12 +210,16 @@ class _$_Question extends _Question {
                     .equals(other.questionId, questionId)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.questionDescription, questionDescription) ||
                 const DeepCollectionEquality()
                     .equals(other.questionDescription, questionDescription)) &&
             (identical(other.mediaUrl, mediaUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.mediaUrl, mediaUrl)));
+                    .equals(other.mediaUrl, mediaUrl)) &&
+            (identical(other.askAt, askAt) ||
+                const DeepCollectionEquality().equals(other.askAt, askAt)));
   }
 
   @override
@@ -187,8 +227,10 @@ class _$_Question extends _Question {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(questionDescription) ^
-      const DeepCollectionEquality().hash(mediaUrl);
+      const DeepCollectionEquality().hash(mediaUrl) ^
+      const DeepCollectionEquality().hash(askAt);
 
   @JsonKey(ignore: true)
   @override
@@ -200,8 +242,10 @@ abstract class _Question extends Question {
   const factory _Question(
       {required UniqueId questionId,
       required UniqueId userId,
+      required Name name,
       required QuestionDescription questionDescription,
-      required MediaUrl mediaUrl}) = _$_Question;
+      required MediaUrl mediaUrl,
+      required Time askAt}) = _$_Question;
   const _Question._() : super._();
 
   @override
@@ -209,10 +253,14 @@ abstract class _Question extends Question {
   @override
   UniqueId get userId => throw _privateConstructorUsedError;
   @override
+  Name get name => throw _privateConstructorUsedError;
+  @override
   QuestionDescription get questionDescription =>
       throw _privateConstructorUsedError;
   @override
   MediaUrl get mediaUrl => throw _privateConstructorUsedError;
+  @override
+  Time get askAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$QuestionCopyWith<_Question> get copyWith =>

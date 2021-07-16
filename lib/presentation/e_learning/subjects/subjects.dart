@@ -1,21 +1,14 @@
-import 'dart:html';
-import 'dart:io';
-
-import 'package:academic_master/domain/e_learning/value_objects.dart';
 import 'package:academic_master/presentation/core/appbar.dart';
 
 import 'package:academic_master/application/e_learning/subject_watcher/subject_watcher_bloc.dart';
-import 'package:academic_master/domain/e_learning/subject.dart';
+
 import 'package:academic_master/domain/e_learning/subject_material.dart';
 
 import 'package:academic_master/presentation/core/critical_failure.dart';
 
-import 'package:academic_master/presentation/core/error.dart';
 import 'package:academic_master/presentation/core/loading.dart';
-import 'package:academic_master/presentation/routes/router.gr.dart';
 
 import 'package:academic_master/presentation/theme/theme.dart';
-import 'package:auto_route/auto_route.dart';
 
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/foundation.dart';
@@ -24,8 +17,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:kt_dart/collection.dart';
 
 import 'package:flutter/widgets.dart';
 

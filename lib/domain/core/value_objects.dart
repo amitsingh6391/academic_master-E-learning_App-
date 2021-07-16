@@ -1,4 +1,4 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:academic_master/domain/core/errors.dart';
 import 'package:academic_master/domain/core/failures.dart';
@@ -143,4 +143,18 @@ class MediaUrl extends ValueObject<String> {
   }
 
   const MediaUrl._(this.value);
+}
+
+class Time extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Time(String input) {
+    debugPrint("i m inout time for question $input");
+    return Time._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const Time._(this.value);
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:academic_master/application/e_learning/add_question_form/add_question_form_bloc.dart';
 
 import 'package:academic_master/domain/e_learning/question.dart';
@@ -127,7 +129,7 @@ class QuestionFormPageScaffold extends StatefulWidget {
 }
 
 class _QuestionFormPageScaffoldState extends State<QuestionFormPageScaffold> {
-  Image? presentationImage;
+  File? questionImage;
   FilePickerResult? file;
 
   @override
@@ -158,7 +160,7 @@ class _QuestionFormPageScaffoldState extends State<QuestionFormPageScaffold> {
                   const SizedBox(height: 16),
                   const QuestionDiscreptionField(),
                   InkWell(
-                    onTap: pickPrescriptionImage,
+                    onTap: pickQuestionImage,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Container(
@@ -166,9 +168,11 @@ class _QuestionFormPageScaffoldState extends State<QuestionFormPageScaffold> {
                         width: double.maxFinite,
                         height: 300,
                         child: Center(
-                          child: presentationImage ??
-                              const Text('Pick Question Image'),
-                        ),
+                            child: questionImage == null
+                                ? Text('Pick Question Image')
+                                : Image(
+                                    image: FileImage(questionImage!),
+                                  )),
                       ),
                     ),
                   ),
@@ -178,7 +182,7 @@ class _QuestionFormPageScaffoldState extends State<QuestionFormPageScaffold> {
                       context
                           .read<AddQuestionFormBloc>()
                           .add(AddQuestionFormEvent.addQuestionPressed(
-                            file!,
+                            questionImage!,
                             state.question,
                           ));
                       // FocusScope.of(context).unfocus();
@@ -196,13 +200,13 @@ class _QuestionFormPageScaffoldState extends State<QuestionFormPageScaffold> {
     );
   }
 
-  Future<void> pickPrescriptionImage() async {
+  Future<void> pickQuestionImage() async {
     file = await FilePicker.platform.pickFiles();
 
     if (file != null) {
       setState(() {
-        presentationImage =
-            Image.memory(file!.files.single.bytes!.buffer.asUint8List());
+        questionImage = File(file!.files.single.path!);
+        debugPrint('images is select $questionImage');
       });
     }
   }

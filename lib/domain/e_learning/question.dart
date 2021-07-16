@@ -15,16 +15,19 @@ abstract class Question implements _$Question {
   const factory Question({
     required UniqueId questionId,
     required UniqueId userId,
+    required Name name,
     required QuestionDescription questionDescription,
     required MediaUrl mediaUrl,
+    required Time askAt,
   }) = _Question;
 
   factory Question.empty() => Question(
-        questionDescription: QuestionDescription(" "),
-        questionId: UniqueId(),
-        userId: UniqueId(),
-        mediaUrl: MediaUrl("abcdeffd"),
-      );
+      questionDescription: QuestionDescription(" "),
+      questionId: UniqueId(),
+      name: Name(""),
+      userId: UniqueId(),
+      mediaUrl: MediaUrl("abcdeffd"),
+      askAt: Time(""));
 
   Option<ValueFailure<dynamic>> get failureOption {
     return questionDescription.failureOrUnit

@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:academic_master/application/auth/auth_bloc.dart';
 import 'package:academic_master/domain/auth/user.dart' as loacal;
 import 'package:academic_master/domain/auth/user.dart';
-import 'package:firebase/firebase.dart' as firebase;
+import 'package:firebase_core/firebase_core.dart' as firebase;
+
+// import 'package:firebase/firebase.dart' as firebase;
 import 'package:academic_master/domain/core/firebase_failures.dart';
 import 'package:academic_master/domain/e_learning/i_e_learning_repository.dart';
 import 'package:academic_master/domain/e_learning/question.dart';
@@ -17,7 +21,7 @@ import 'package:kt_dart/kt.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fbauth;
 import 'package:academic_master/infrastructure/core/firestore_helpers.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_storage/firebase_storage.dart' as storage;
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IElearningRepository)
@@ -83,7 +87,7 @@ class ElearningRepository implements IElearningRepository {
 
   @override
   Future<Either<FirebaseFailure, Unit>> createQuestion(
-      FilePickerResult file, Question question) async {
+      File questionImage, Question question) async {
     try {
       final userDoc = await _firestore.usersCollection();
       final currentUser = _firebaseAuth.currentUser!.uid;
@@ -94,17 +98,25 @@ class ElearningRepository implements IElearningRepository {
 
       final questionsCollection = await _firestore.questionCollection(user!);
 
-      final uriOrFailure = await uploadQuestionImage(file);
+      debugPrint("i m at questioncollection $questionsCollection");
+
+      final uriOrFailure = await uploadQuestionImage(
+        questionImage,
+      );
+      debugPrint(" i m at  uriorfailure $uriOrFailure");
 
       final uriPath =
           uriOrFailure.getOrElse(() => throw const Unauthenticated());
 
       debugPrint("........uripath........$uriPath");
 
+      debugPrint(_firebaseAuth.currentUser!.uid);
+
       final questionDto = QuestionDto.fromDomain(question).copyWith(
-        mediaUrl: uriPath,
-        userId: _firebaseAuth.currentUser!.uid,
-      );
+          mediaUrl: uriPath,
+          userId: _firebaseAuth.currentUser!.uid,
+          name: _firebaseAuth.currentUser!.displayName!,
+          askAt: DateTime.now());
       debugPrint("now my questiondto are >>>>>>>>>>.$questionDto");
 
       // final questionDto = QuestionDto.fromDomain(question);
@@ -191,6 +203,10 @@ class ElearningRepository implements IElearningRepository {
     final questionCollection = await _firestore.questionCollection(user!);
 
     yield* questionCollection
+        .orderBy(
+          "askAt",
+          descending: true,
+        )
         .snapshots()
         .map(
           (snapshot) => right<FirebaseFailure, KtList<Question>>(
@@ -200,7 +216,7 @@ class ElearningRepository implements IElearningRepository {
           ),
         )
         .handleError((e) {
-      debugPrint("i m error  question section .......................   $e");
+      debugPrint("i m error  question sections .......................   $e");
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const FirebaseFailure.insufficientPermission());
       } else {
@@ -210,16 +226,32 @@ class ElearningRepository implements IElearningRepository {
   }
 
   Future<Either<FirebaseFailure, String>> uploadQuestionImage(
-      FilePickerResult file) async {
+    File questionImage,
+  ) async {
     try {
-      final storageReference =
-          firebase.storage().ref('questions').child(file.files.single.name!);
-      final firebase.UploadTaskSnapshot uploadTaskSnapshot =
-          await storageReference.put(file.files.single.bytes).future;
-      final Uri imageUri = await uploadTaskSnapshot.ref.getDownloadURL();
-      final path = Uri.parse(imageUri.toString()).toString();
-      debugPrint(">>>>>>>>>>.  i could store $path ");
-      return right(path);
+      storage.UploadTask uploadTask = storage.FirebaseStorage.instance
+          .ref('questions')
+          .child("questionImage/questionImage_$questionImage.jpg")
+          .putFile(questionImage);
+
+      storage.TaskSnapshot taskSnapshot =
+          await uploadTask.whenComplete(() => this);
+
+      debugPrint("this is our snapshot of task $taskSnapshot");
+      final String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+      debugPrint("this is our url$downloadUrl");
+      return right(downloadUrl);
+
+      // final storageReference = firebasestorage
+      //    .storage()
+      //     .ref('questions')
+      //     .child(file.files.single.name!);
+      // final firebase.UploadTaskSnapshot uploadTaskSnapshot =
+      //     await storageReference.put(file.files.single.bytes).future;
+      // final Uri imageUri = await uploadTaskSnapshot.ref.getDownloadURL();
+      // final path = Uri.parse(imageUri.toString()).toString();
+      // debugPrint(">>>>>>>>>>.  i could store $path ");
+      // return right(path);
     } on FirebaseException catch (_) {
       debugPrint(">>>>>>>>>>. i m sorry i could not store $_");
       return left(const FirebaseFailure.unexpected());

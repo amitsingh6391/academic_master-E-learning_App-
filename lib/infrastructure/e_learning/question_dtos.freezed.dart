@@ -23,12 +23,14 @@ class _$QuestionDtoTearOff {
   _QuestionDto call(
       {required String questionId,
       required String userId,
+      required String name,
       required String questionDescription,
       required String mediaUrl,
       required DateTime askAt}) {
     return _QuestionDto(
       questionId: questionId,
       userId: userId,
+      name: name,
       questionDescription: questionDescription,
       mediaUrl: mediaUrl,
       askAt: askAt,
@@ -47,6 +49,7 @@ const $QuestionDto = _$QuestionDtoTearOff();
 mixin _$QuestionDto {
   String get questionId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String get questionDescription => throw _privateConstructorUsedError;
   String get mediaUrl => throw _privateConstructorUsedError;
   DateTime get askAt => throw _privateConstructorUsedError;
@@ -65,6 +68,7 @@ abstract class $QuestionDtoCopyWith<$Res> {
   $Res call(
       {String questionId,
       String userId,
+      String name,
       String questionDescription,
       String mediaUrl,
       DateTime askAt});
@@ -82,6 +86,7 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
   $Res call({
     Object? questionId = freezed,
     Object? userId = freezed,
+    Object? name = freezed,
     Object? questionDescription = freezed,
     Object? mediaUrl = freezed,
     Object? askAt = freezed,
@@ -94,6 +99,10 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       questionDescription: questionDescription == freezed
           ? _value.questionDescription
@@ -121,6 +130,7 @@ abstract class _$QuestionDtoCopyWith<$Res>
   $Res call(
       {String questionId,
       String userId,
+      String name,
       String questionDescription,
       String mediaUrl,
       DateTime askAt});
@@ -140,6 +150,7 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
   $Res call({
     Object? questionId = freezed,
     Object? userId = freezed,
+    Object? name = freezed,
     Object? questionDescription = freezed,
     Object? mediaUrl = freezed,
     Object? askAt = freezed,
@@ -152,6 +163,10 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       questionDescription: questionDescription == freezed
           ? _value.questionDescription
@@ -176,6 +191,7 @@ class _$_QuestionDto extends _QuestionDto {
   const _$_QuestionDto(
       {required this.questionId,
       required this.userId,
+      required this.name,
       required this.questionDescription,
       required this.mediaUrl,
       required this.askAt})
@@ -189,6 +205,8 @@ class _$_QuestionDto extends _QuestionDto {
   @override
   final String userId;
   @override
+  final String name;
+  @override
   final String questionDescription;
   @override
   final String mediaUrl;
@@ -197,7 +215,7 @@ class _$_QuestionDto extends _QuestionDto {
 
   @override
   String toString() {
-    return 'QuestionDto(questionId: $questionId, userId: $userId, questionDescription: $questionDescription, mediaUrl: $mediaUrl, askAt: $askAt)';
+    return 'QuestionDto(questionId: $questionId, userId: $userId, name: $name, questionDescription: $questionDescription, mediaUrl: $mediaUrl, askAt: $askAt)';
   }
 
   @override
@@ -209,6 +227,8 @@ class _$_QuestionDto extends _QuestionDto {
                     .equals(other.questionId, questionId)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.questionDescription, questionDescription) ||
                 const DeepCollectionEquality()
                     .equals(other.questionDescription, questionDescription)) &&
@@ -224,6 +244,7 @@ class _$_QuestionDto extends _QuestionDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(questionDescription) ^
       const DeepCollectionEquality().hash(mediaUrl) ^
       const DeepCollectionEquality().hash(askAt);
@@ -243,6 +264,7 @@ abstract class _QuestionDto extends QuestionDto {
   const factory _QuestionDto(
       {required String questionId,
       required String userId,
+      required String name,
       required String questionDescription,
       required String mediaUrl,
       required DateTime askAt}) = _$_QuestionDto;
@@ -255,6 +277,8 @@ abstract class _QuestionDto extends QuestionDto {
   String get questionId => throw _privateConstructorUsedError;
   @override
   String get userId => throw _privateConstructorUsedError;
+  @override
+  String get name => throw _privateConstructorUsedError;
   @override
   String get questionDescription => throw _privateConstructorUsedError;
   @override

@@ -11,5 +11,5 @@ class AddQuestionFormEvent with _$AddQuestionFormEvent {
   const factory AddQuestionFormEvent.pickImage() = _PickImage;
 
   const factory AddQuestionFormEvent.addQuestionPressed(
-      FilePickerResult file, Question question) = _AddQuestionpressed;
+      File file, Question question) = _AddQuestionpressed;
 }

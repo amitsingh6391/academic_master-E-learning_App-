@@ -26,8 +26,7 @@ class _$AddQuestionFormEventTearOff {
     return const _PickImage();
   }
 
-  _AddQuestionpressed addQuestionPressed(
-      FilePickerResult file, Question question) {
+  _AddQuestionpressed addQuestionPressed(File file, Question question) {
     return _AddQuestionpressed(
       file,
       question,
@@ -44,16 +43,14 @@ mixin _$AddQuestionFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String description) questionDescriptionChanged,
     required TResult Function() pickImage,
-    required TResult Function(FilePickerResult file, Question question)
-        addQuestionPressed,
+    required TResult Function(File file, Question question) addQuestionPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String description)? questionDescriptionChanged,
     TResult Function()? pickImage,
-    TResult Function(FilePickerResult file, Question question)?
-        addQuestionPressed,
+    TResult Function(File file, Question question)? addQuestionPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,8 +171,7 @@ class _$_QuestionDescriptionChanged
   TResult when<TResult extends Object?>({
     required TResult Function(String description) questionDescriptionChanged,
     required TResult Function() pickImage,
-    required TResult Function(FilePickerResult file, Question question)
-        addQuestionPressed,
+    required TResult Function(File file, Question question) addQuestionPressed,
   }) {
     return questionDescriptionChanged(description);
   }
@@ -185,8 +181,7 @@ class _$_QuestionDescriptionChanged
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String description)? questionDescriptionChanged,
     TResult Function()? pickImage,
-    TResult Function(FilePickerResult file, Question question)?
-        addQuestionPressed,
+    TResult Function(File file, Question question)? addQuestionPressed,
     required TResult orElse(),
   }) {
     if (questionDescriptionChanged != null) {
@@ -279,8 +274,7 @@ class _$_PickImage with DiagnosticableTreeMixin implements _PickImage {
   TResult when<TResult extends Object?>({
     required TResult Function(String description) questionDescriptionChanged,
     required TResult Function() pickImage,
-    required TResult Function(FilePickerResult file, Question question)
-        addQuestionPressed,
+    required TResult Function(File file, Question question) addQuestionPressed,
   }) {
     return pickImage();
   }
@@ -290,8 +284,7 @@ class _$_PickImage with DiagnosticableTreeMixin implements _PickImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String description)? questionDescriptionChanged,
     TResult Function()? pickImage,
-    TResult Function(FilePickerResult file, Question question)?
-        addQuestionPressed,
+    TResult Function(File file, Question question)? addQuestionPressed,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -336,7 +329,7 @@ abstract class _$AddQuestionpressedCopyWith<$Res> {
   factory _$AddQuestionpressedCopyWith(
           _AddQuestionpressed value, $Res Function(_AddQuestionpressed) then) =
       __$AddQuestionpressedCopyWithImpl<$Res>;
-  $Res call({FilePickerResult file, Question question});
+  $Res call({File file, Question question});
 
   $QuestionCopyWith<$Res> get question;
 }
@@ -361,7 +354,7 @@ class __$AddQuestionpressedCopyWithImpl<$Res>
       file == freezed
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
-              as FilePickerResult,
+              as File,
       question == freezed
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -384,7 +377,7 @@ class _$_AddQuestionpressed
   const _$_AddQuestionpressed(this.file, this.question);
 
   @override
-  final FilePickerResult file;
+  final File file;
   @override
   final Question question;
 
@@ -430,8 +423,7 @@ class _$_AddQuestionpressed
   TResult when<TResult extends Object?>({
     required TResult Function(String description) questionDescriptionChanged,
     required TResult Function() pickImage,
-    required TResult Function(FilePickerResult file, Question question)
-        addQuestionPressed,
+    required TResult Function(File file, Question question) addQuestionPressed,
   }) {
     return addQuestionPressed(file, question);
   }
@@ -441,8 +433,7 @@ class _$_AddQuestionpressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String description)? questionDescriptionChanged,
     TResult Function()? pickImage,
-    TResult Function(FilePickerResult file, Question question)?
-        addQuestionPressed,
+    TResult Function(File file, Question question)? addQuestionPressed,
     required TResult orElse(),
   }) {
     if (addQuestionPressed != null) {
@@ -479,10 +470,10 @@ class _$_AddQuestionpressed
 }
 
 abstract class _AddQuestionpressed implements AddQuestionFormEvent {
-  const factory _AddQuestionpressed(FilePickerResult file, Question question) =
+  const factory _AddQuestionpressed(File file, Question question) =
       _$_AddQuestionpressed;
 
-  FilePickerResult get file => throw _privateConstructorUsedError;
+  File get file => throw _privateConstructorUsedError;
   Question get question => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AddQuestionpressedCopyWith<_AddQuestionpressed> get copyWith =>

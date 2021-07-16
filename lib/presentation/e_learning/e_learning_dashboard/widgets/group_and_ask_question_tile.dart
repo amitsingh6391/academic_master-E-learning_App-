@@ -21,9 +21,12 @@ class GroupAndAskQuestionTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(child: ImageBoxTile("group.jpg", "Groups")),
-                Expanded(
-                  child: ImageBoxTile("girl.jpg", "Ask a Doubt"),
-                ),
+                InkWell(
+                    onTap: () {
+                      AutoRouter.of(context).push(QuestionFormRoute());
+                    },
+                    child: Expanded(
+                        child: ImageBoxTile("girl.jpg", "Ask a Doubt"))),
               ],
             )
           : Row(
@@ -41,34 +44,6 @@ class GroupAndAskQuestionTile extends StatelessWidget {
               ],
             );
     });
-
-    //1.sw < 451
-
-    // ? Row(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //       Expanded(child: ImageBoxTile("group.jpg", "Groups")),
-    //       InkWell(
-    //         onTap: () {
-    //           AutoRouter.of(context)
-    //               .push(QuestionFormRoute(editedQuestion: null));
-    //         },
-    //         child: Expanded(
-    //           child: ImageBoxTile("girl.jpg", "Ask a Doubt"),
-    //         ),
-    //       ),
-    //     ],
-    //   )
-    // : Row(
-    //     children: [
-    //       Flexible(
-    //         child: ImageBoxTile("group.jpg", "Groups"),
-    //       ),
-    //       Flexible(
-    //         child: ImageBoxTile("girl.jpg", "Ask a Doubt"),
-    //       )
-    //     ],
-    //   );
   }
 }
 
@@ -100,7 +75,7 @@ class ImageBoxTile extends StatelessWidget {
           Image(
             image: AssetImage("assets/images/$image"),
             width: 1.sw / 2.5,
-            height: 1.sw > 450 ? 1.sh / 3 : 1.sh / 4,
+            height: 1.sw > 450 ? 1.sh / 3 : 1.sh / 5,
             fit: BoxFit.fill,
           )
         ],
